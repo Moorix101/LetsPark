@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+
+        <application
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="ParkEase"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
+
+            <!-- Main Activity (Home) -->
+            <activity
+                android:name=".MainActivity"
+                android:exported="true">
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+            </activity>
+
+            <!-- Spot Selection Activity -->
+            <activity
+                android:name=".SpotActivity"
+                android:exported="false" />
+
+            <!-- Vehicles Management Activity -->
+            <activity
+                android:name=".VehiclesActivity"
+                android:exported="false" />
+
+            <!-- Add/Edit Vehicle Activity -->
+            <activity
+                android:name=".AddVehicleActivity"
+                android:exported="false"
+                android:windowSoftInputMode="adjustResize" />
+
+            <!-- Active Session Activity -->
+            <activity
+                android:name=".SessionActivity"
+                android:exported="false" />
+
+            <!-- History Activity -->
+            <activity
+                android:name=".HistoryActivity"
+                android:exported="false" />
+
+        </application>
+
+    </manifest>
