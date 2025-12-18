@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
     private CardView activeSessionCard;
     private TextView activeSessionInfo;
     private Button btnStartParking;
-    private Button btnVehicles;
-    private Button btnHistory;
+    private CardView btnVehicles; // Changed from Button to CardView
+    private CardView btnHistory;  // Changed from Button to CardView
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

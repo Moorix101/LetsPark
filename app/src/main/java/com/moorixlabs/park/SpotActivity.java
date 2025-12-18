@@ -28,7 +28,8 @@ public class SpotActivity extends AppCompatActivity {
     private HistoryManager historyManager;
     private SessionController sessionController;
 
-    private GridLayout spotGrid;
+    private GridLayout leftSpotsContainer;
+    private GridLayout rightSpotsContainer;
     private Button btnStartSession;
     private String selectedSpotId = null;
 
@@ -51,7 +52,8 @@ public class SpotActivity extends AppCompatActivity {
     }
 
     private void bindViews() {
-        spotGrid = findViewById(R.id.SpotGrid);
+        leftSpotsContainer = findViewById(R.id.leftSpotsContainer);
+        rightSpotsContainer = findViewById(R.id.rightSpotsContainer);
         btnStartSession = findViewById(R.id.BtnStartSession);
         ImageButton btnBack = findViewById(R.id.btnBack);
 
@@ -63,30 +65,44 @@ public class SpotActivity extends AppCompatActivity {
     }
 
     private void loadSpotGrid() {
-        spotGrid.removeAllViews();
+        leftSpotsContainer.removeAllViews();
+        rightSpotsContainer.removeAllViews();
         List<ParkingSpot> spots = parkingManager.getAllSpots();
 
-        for (ParkingSpot spot : spots) {
+        // Split spots: 50% left, 50% right
+        int midPoint = (int) Math.ceil(spots.size() / 2.0);
+
+        for (int i = 0; i < spots.size(); i++) {
+            ParkingSpot spot = spots.get(i);
             CardView card = createSpotCard(spot);
-            spotGrid.addView(card);
+            
+            if (i < midPoint) {
+                leftSpotsContainer.addView(card);
+            } else {
+                rightSpotsContainer.addView(card);
+            }
         }
     }
 
     private CardView createSpotCard(ParkingSpot spot) {
         CardView card = new CardView(this);
 
-        // Set layout params
+        // Set layout params for Grid items (1 column)
         GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-        params.width = 0;
-        params.height = GridLayout.LayoutParams.WRAP_CONTENT;
-        params.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f);
-        params.setMargins(8, 8, 8, 8);
+        params.width = 300; // Fixed width or match_parent equivalent
+        params.height = 180; // Taller spots
+        params.setMargins(16, 24, 16, 24); // More separation vertically
+        // Note: GridLayout.spec is needed if we want specific row/col placement, 
+        // but auto-placement works if we just add views. 
+        // However, defining width is tricky in code without strict context. 
+        // Let's set a reasonable fixed size for "realistic" look.
+        
         card.setLayoutParams(params);
 
         // Card styling
         card.setRadius(12);
-        card.setCardElevation(4);
-        card.setUseCompatPadding(true);
+        card.setCardElevation(0);
+        card.setUseCompatPadding(false); // We handle margins manually
 
         // Text view for label
         android.widget.TextView text = new android.widget.TextView(this);
@@ -94,15 +110,15 @@ public class SpotActivity extends AppCompatActivity {
         text.setTextSize(18);
         text.setTextColor(Color.WHITE);
         text.setGravity(Gravity.CENTER);
-        text.setPadding(0, 60, 0, 60);
         text.setTextAlignment(android.view.View.TEXT_ALIGNMENT_CENTER);
 
-        // Set color based on status
+        // Apply Figma Status Colors
         if (spot.isOccupied()) {
-            card.setCardBackgroundColor(Color.parseColor("#EF4444")); // Red
+            card.setCardBackgroundColor(Color.parseColor("#ef4444")); // Red
+            card.setAlpha(0.6f);
             card.setClickable(false);
         } else {
-            card.setCardBackgroundColor(Color.parseColor("#10B981")); // Green
+            card.setCardBackgroundColor(Color.parseColor("#22c55e")); // Green
             card.setClickable(true);
             card.setOnClickListener(v -> selectSpot(spot, card));
         }
@@ -112,22 +128,33 @@ public class SpotActivity extends AppCompatActivity {
     }
 
     private void selectSpot(ParkingSpot spot, CardView card) {
-        // Reset all cards to green
-        for (int i = 0; i < spotGrid.getChildCount(); i++) {
-            android.view.View child = spotGrid.getChildAt(i);
-            if (child instanceof CardView) {
-                CardView c = (CardView) child;
-                ParkingSpot s = parkingManager.getAllSpots().get(i);
-                if (s.isFree()) {
-                    c.setCardBackgroundColor(Color.parseColor("#10B981"));
-                }
-            }
-        }
+        // Reset all cards in LEFT container
+        resetContainerCards(leftSpotsContainer);
+        // Reset all cards in RIGHT container
+        resetContainerCards(rightSpotsContainer);
 
         // Highlight selected
         card.setCardBackgroundColor(Color.parseColor("#3B82F6")); // Blue
         selectedSpotId = spot.getSpotId();
         btnStartSession.setEnabled(true);
+    }
+
+    private void resetContainerCards(GridLayout container) {
+        for (int i = 0; i < container.getChildCount(); i++) {
+            android.view.View child = container.getChildAt(i);
+            if (child instanceof CardView) {
+                CardView c = (CardView) child;
+                // We need to check if the spot associated with this card is free.
+                // Since we don't have a direct map from View -> Spot here easily 
+                // without tagging, let's rely on the color check or re-fetch.
+                // A better way is to set tag on create.
+                
+                // Hacky check: if alpha is 0.6, it's occupied (Red). Don't touch it.
+                if (c.getAlpha() < 0.9f) continue;
+
+                c.setCardBackgroundColor(Color.parseColor("#22c55e")); // Reset to Green
+            }
+        }
     }
 
     private void startParkingSession() {
@@ -136,7 +163,6 @@ public class SpotActivity extends AppCompatActivity {
             return;
         }
 
-        // Use pure Java controller
         SessionController.SessionStartResult result = sessionController.startSession(selectedSpotId);
 
         if (result.isSuccess()) {

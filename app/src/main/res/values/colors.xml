@@ -2,4 +2,23 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    <!-- Purple Theme Colors -->
+    <color name="bg_purple_950">#1E1035</color>
+    <color name="text_purple_100">#E9D5FF</color>
+    <color name="text_purple_300">#A855F7</color>
+    <color name="header_purple_600">#9333EA</color>
+    
+    <!-- UI Component Colors -->
+    <color name="glass_card_bg">#2D1B4E</color>
+    <color name="progress_track">#4C1D95</color>
+
+    <!-- Green Theme Colors -->
+    <color name="bg_white">#F5F7FA</color>
+    <color name="primary_green">#10B981</color>
+    <color name="primary_green_dark">#059669</color>
+    <color name="text_primary">#1F2937</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="card_bg_white">#FFFFFF</color>
+    <color name="progress_track_green">#D1FAE5</color> <!-- Light green for track -->
 </resources>
