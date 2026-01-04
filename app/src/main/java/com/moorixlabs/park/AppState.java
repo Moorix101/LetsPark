@@ -3,6 +3,7 @@ package com.moorixlabs.park;
 
 import com.moorixlabs.park.models.HistoryManager;
 import com.moorixlabs.park.models.ParkingManager;
+import com.moorixlabs.park.models.PaymentManager;
 import com.moorixlabs.park.models.VehicleManager;
 
 /**
@@ -14,11 +15,13 @@ public class AppState {
     private ParkingManager parkingManager;
     private VehicleManager vehicleManager;
     private HistoryManager historyManager;
+    private PaymentManager paymentManager;
 
     private AppState() {
         parkingManager = new ParkingManager();
         vehicleManager = new VehicleManager();
         historyManager = new HistoryManager();
+        paymentManager = new PaymentManager();
     }
 
     public static AppState getInstance() {
@@ -38,5 +41,9 @@ public class AppState {
 
     public HistoryManager getHistoryManager() {
         return historyManager;
+    }
+    
+    public PaymentManager getPaymentManager() {
+        return paymentManager;
     }
 }

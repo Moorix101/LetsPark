@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="toolbar_top_margin">24dp</dimen>
+    <dimen name="spot_card_width">110dp</dimen>
+    <dimen name="spot_card_height">60dp</dimen>
+    <dimen name="spot_card_margin_h">4dp</dimen>
+    <dimen name="spot_card_margin_v">8dp</dimen>
+</resources>

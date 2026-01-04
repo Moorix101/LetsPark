@@ -3,33 +3,60 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_white">
+    android:background="@color/bg_white"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Header Container with Padding for Status Bar -->
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/header_gradient_green_rounded"
-            android:padding="24dp">
+            android:paddingTop="48dp"
+            android:paddingBottom="32dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp">
 
             <TextView
+                android:id="@+id/tvAppName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="LetsPark"
+                android:text="@string/app_name"
                 android:textColor="#FFFFFF"
                 android:textSize="32sp"
                 android:textStyle="bold" />
+                
+            <androidx.cardview.widget.CardView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@id/tvAppName"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#20FFFFFF">
+
+                <ImageButton
+                    android:id="@+id/btnLanguageSwitch"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/language_selection"
+                    android:src="@drawable/language"
+                    android:scaleType="fitCenter"
+                    android:padding="8dp"/>
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/tvUserName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:text="Welcome, Abderrahmane"
+                android:layout_below="@id/tvAppName"
+                android:layout_marginTop="8dp"
+                android:text="@string/label_welcome"
                 android:textColor="#E0F2FE"
                 android:textSize="16sp" />
         </RelativeLayout>
@@ -38,8 +65,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="24dp">
+            android:padding="24dp"
+            android:clipToPadding="false">
 
+            <!-- Available Spots Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,7 +86,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Available Spots"
+                        android:text="@string/label_available_spots"
                         android:textColor="@color/text_secondary"
                         android:textSize="14sp" />
 
@@ -102,11 +131,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="10 MAD/hour"
+                        android:text="@string/rate_per_hour"
                         android:textColor="@color/text_primary" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <!-- Active Session Card -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/activeSessionCard"
                 android:layout_width="match_parent"
@@ -126,7 +156,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Active Session"
+                        android:text="@string/label_active_session"
                         android:textColor="@color/primary_green_dark"
                         android:textStyle="bold"
                         android:textSize="16sp"/>
@@ -136,100 +166,120 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="Loading..."
+                        android:text="@string/loading"
                         android:textColor="@color/text_primary"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/btnStartParking"
+            <!-- Start Parking Button Container -->
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="Start Parking"
-                android:backgroundTint="@color/primary_green"
-                app:cornerRadius="12dp" />
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:layout_marginBottom="24dp">
+                
+                <Button
+                    android:id="@+id/btnStartParking"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:text="@string/btn_start_parking"
+                    android:backgroundTint="@color/primary_green"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="16dp" />
+            </androidx.cardview.widget.CardView>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/btnVehicles"
                     android:layout_width="0dp"
-                    android:layout_height="120dp"
+                    android:layout_height="140dp"
                     android:layout_weight="1"
                     android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
                     app:cardBackgroundColor="@color/card_bg_white"
-                    app:cardCornerRadius="16dp"
+                    app:cardCornerRadius="20dp"
                     app:cardElevation="4dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="16dp">
 
                         <FrameLayout
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
                             android:background="@drawable/header_gradient_green_rounded">
                              <ImageView
                                  android:layout_width="match_parent"
                                  android:layout_height="match_parent"
                                  android:src="@drawable/ic_car"
-                                 android:padding="12dp"
+                                 android:padding="14dp"
                                  app:tint="#FFFFFF"/>
                         </FrameLayout>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:text="My Vehicles"
+                            android:layout_marginTop="16dp"
+                            android:text="@string/btn_my_vehicles"
                             android:textColor="@color/text_primary"
                             android:textSize="14sp"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold"
+                            android:gravity="center"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/btnHistory"
                     android:layout_width="0dp"
-                    android:layout_height="120dp"
+                    android:layout_height="140dp"
                     android:layout_weight="1"
                     android:layout_marginStart="8dp"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
                     app:cardBackgroundColor="@color/card_bg_white"
-                    app:cardCornerRadius="16dp"
+                    app:cardCornerRadius="20dp"
                     app:cardElevation="4dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="16dp">
 
                         <FrameLayout
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
                             android:background="@drawable/header_gradient_green_rounded">
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:src="@drawable/ic_history"
-                                android:padding="12dp"
+                                android:padding="14dp"
                                 app:tint="#FFFFFF"/>
                         </FrameLayout>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            android:text="History"
+                            android:layout_marginTop="16dp"
+                            android:text="@string/btn_history"
                             android:textColor="@color/text_primary"
                             android:textSize="14sp"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold"
+                            android:gravity="center"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>

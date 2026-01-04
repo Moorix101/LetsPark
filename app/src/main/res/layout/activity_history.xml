@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80px"
+        android:layout_marginTop="@dimen/toolbar_top_margin"
 
         app:cardElevation="4dp"
         app:cardCornerRadius="0dp">
@@ -31,10 +31,11 @@
                 android:contentDescription="Back"/>
 
             <TextView
+                android:id="@+id/tvTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Parking History"
+                android:text="@string/title_history"
                 android:textColor="#1F2937"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -60,9 +61,10 @@
             android:textSize="64sp"/>
 
         <TextView
+            android:id="@+id/tvNoHistory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="No History Yet"
+            android:text="@string/msg_no_history"
             android:textColor="#1F2937"
             android:textSize="20sp"
             android:textStyle="bold"

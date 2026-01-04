@@ -8,6 +8,7 @@ import android.view.Gravity;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
@@ -16,6 +17,8 @@ import com.moorixlabs.park.models.HistoryManager;
 import com.moorixlabs.park.models.ParkingManager;
 import com.moorixlabs.park.models.VehicleManager;
 import com.moorixlabs.park.models.ParkingSpot;
+import com.moorixlabs.park.utils.LanguageHelper;
+
 import java.util.List;
 
 /**
@@ -35,6 +38,7 @@ public class SpotActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        LanguageHelper.loadLocale(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spot);
 
@@ -58,6 +62,15 @@ public class SpotActivity extends AppCompatActivity {
         ImageButton btnBack = findViewById(R.id.btnBack);
 
         btnBack.setOnClickListener(v -> finish());
+        
+        // Update Labels from Resources
+        ((TextView)findViewById(R.id.tvTitle)).setText(R.string.title_select_spot);
+        ((TextView)findViewById(R.id.tvLegendFree)).setText(R.string.legend_free);
+        ((TextView)findViewById(R.id.tvLegendTaken)).setText(R.string.legend_taken);
+        ((TextView)findViewById(R.id.tvLegendSelected)).setText(R.string.legend_selected);
+        ((TextView)findViewById(R.id.tvEntrance)).setText(R.string.label_entrance);
+        ((TextView)findViewById(R.id.tvYouAreHere)).setText(R.string.label_you_are_here);
+        btnStartSession.setText(R.string.btn_start_session);
     }
 
     private void setupListeners() {
@@ -159,7 +172,7 @@ public class SpotActivity extends AppCompatActivity {
 
     private void startParkingSession() {
         if (selectedSpotId == null) {
-            Toast.makeText(this, "Please select a spot", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.msg_select_spot), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -171,7 +184,17 @@ public class SpotActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         } else {
-            Toast.makeText(this, result.getMessage(), Toast.LENGTH_LONG).show();
+            // Translate the error key to a localized message
+            String message = getLocalizedMessage(result.getMessageKey());
+            Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         }
+    }
+    
+    private String getLocalizedMessage(String key) {
+        int resId = getResources().getIdentifier(key, "string", getPackageName());
+        if (resId != 0) {
+            return getString(resId);
+        }
+        return key; // Fallback to key if not found
     }
 }

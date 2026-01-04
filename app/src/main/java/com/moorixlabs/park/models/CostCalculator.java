@@ -27,12 +27,14 @@ public class CostCalculator {
         return calculateCostFromStart(startTimeMillis, DEFAULT_HOURLY_RATE);
     }
 
-    public static String formatCost(double cost) {
-        return String.format(Locale.getDefault(), "%.2f dh", cost);
+    // Updated: Pass currency symbol from UI layer
+    public static String formatCost(double cost, String currencySymbol) {
+        return String.format(Locale.getDefault(), "%.2f %s", cost, currencySymbol);
     }
 
-    public static String formatHourlyRate(double rate) {
-        return String.format(Locale.getDefault(), "%.0f dh/hour", rate);
+    // Updated: Pass currency symbol from UI layer
+    public static String formatHourlyRate(double rate, String currencySymbol) {
+        return String.format(Locale.getDefault(), "%.0f %s/hour", rate, currencySymbol);
     }
 
     public static double getDefaultHourlyRate() {

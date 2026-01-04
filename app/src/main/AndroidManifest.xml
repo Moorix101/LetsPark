@@ -47,6 +47,11 @@
             <activity
                 android:name=".HistoryActivity"
                 android:exported="false" />
+                
+            <!-- Payment Activity -->
+            <activity
+                android:name=".PaymentActivity"
+                android:exported="false" />
 
         </application>
 

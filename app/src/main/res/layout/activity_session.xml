@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80px"
+        android:layout_marginTop="@dimen/toolbar_top_margin"
 
         app:cardElevation="4dp"
         app:cardCornerRadius="0dp">
@@ -31,10 +31,11 @@
                 android:contentDescription="Home"/>
 
             <TextView
+                android:id="@+id/tvHeaderTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Active Session"
+                android:text="@string/label_active_session"
                 android:textColor="#1F2937"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -77,9 +78,10 @@
                         android:textSize="48sp"/>
 
                     <TextView
+                        android:id="@+id/label_session_active_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Session Active"
+                        android:text="@string/label_session_active"
                         android:textColor="#FFFFFF"
                         android:textSize="20sp"
                         android:textStyle="bold"
@@ -114,9 +116,10 @@
                     android:padding="20dp">
 
                     <TextView
+                        android:id="@+id/label_current_cost"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Current Cost"
+                        android:text="@string/label_current_cost"
                         android:textColor="#6B7280"
                         android:textSize="14sp"/>
 
@@ -148,9 +151,10 @@
                     android:padding="20dp">
 
                     <TextView
+                        android:id="@+id/label_session_details"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Session Details"
+                        android:text="@string/label_session_details"
                         android:textColor="#1F2937"
                         android:textSize="16sp"
                         android:textStyle="bold"
@@ -163,10 +167,11 @@
                         android:layout_marginBottom="8dp">
 
                         <TextView
+                            android:id="@+id/label_parking_spot"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Parking Spot"
+                            android:text="@string/label_parking_spot"
                             android:textColor="#6B7280"
                             android:textSize="14sp"/>
 
@@ -188,10 +193,11 @@
                         android:layout_marginBottom="8dp">
 
                         <TextView
+                            android:id="@+id/label_vehicle"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Vehicle"
+                            android:text="@string/label_vehicle"
                             android:textColor="#6B7280"
                             android:textSize="14sp"/>
 
@@ -212,10 +218,11 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/label_start_time"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Start Time"
+                            android:text="@string/label_start_time"
                             android:textColor="#6B7280"
                             android:textSize="14sp"/>
 
@@ -247,7 +254,7 @@
             android:id="@+id/btnFinishSession"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:text="Finish Session"
+            android:text="@string/btn_finish_session"
             android:textAllCaps="false"
             android:textSize="16sp"
             android:backgroundTint="#EF4444"

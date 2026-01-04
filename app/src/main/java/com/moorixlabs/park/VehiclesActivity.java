@@ -18,6 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.moorixlabs.park.models.VehicleManager;
 import com.moorixlabs.park.models.Vehicle;
+import com.moorixlabs.park.utils.LanguageHelper;
+
 import java.util.List;
 
 /**
@@ -32,6 +34,7 @@ public class VehiclesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        LanguageHelper.loadLocale(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vehicles);
 
@@ -59,6 +62,10 @@ public class VehiclesActivity extends AppCompatActivity {
             Intent intent = new Intent(this, AddVehicleActivity.class);
             startActivity(intent);
         });
+        
+        ((TextView)findViewById(R.id.tvTitle)).setText(R.string.title_my_vehicles);
+        ((TextView)findViewById(R.id.tvNoVehicles)).setText(R.string.msg_no_vehicles);
+        ((TextView)findViewById(R.id.tvAddFirst)).setText(R.string.msg_add_first_vehicle);
     }
 
     private void setupListeners() {

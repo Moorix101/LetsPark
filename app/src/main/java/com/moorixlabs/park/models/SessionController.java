@@ -20,44 +20,45 @@ public class SessionController {
         this.historyManager = historyManager;
     }
 
+    // Now returns keys instead of hardcoded English strings
     public SessionStartResult startSession(String spotId) {
         // Check if there's already an active session
         if (parkingManager.hasActiveSession()) {
-            return new SessionStartResult(false, "Active session already exists");
+            return new SessionStartResult(false, "err_session_already_active");
         }
 
         // Check if user has vehicles
         if (!vehicleManager.hasVehicles()) {
-            return new SessionStartResult(false, "Please add a vehicle first");
+            return new SessionStartResult(false, "err_no_vehicles");
         }
 
         // Get default vehicle
         Vehicle vehicle = vehicleManager.getDefaultVehicle();
         if (vehicle == null) {
-            return new SessionStartResult(false, "No default vehicle found");
+            return new SessionStartResult(false, "err_no_default_vehicle");
         }
 
         // Check if spot is available
         ParkingSpot spot = parkingManager.getSpotById(spotId);
         if (spot == null) {
-            return new SessionStartResult(false, "Invalid spot");
+            return new SessionStartResult(false, "err_invalid_spot");
         }
         if (spot.isOccupied()) {
-            return new SessionStartResult(false, "Spot is already occupied");
+            return new SessionStartResult(false, "err_spot_occupied");
         }
 
         // Start the session
         boolean success = parkingManager.startSession(spotId, vehicle.getId());
         if (success) {
-            return new SessionStartResult(true, "Session started successfully");
+            return new SessionStartResult(true, "msg_session_started");
         } else {
-            return new SessionStartResult(false, "Failed to start session");
+            return new SessionStartResult(false, "err_failed_start");
         }
     }
 
     public SessionEndResult endSession() {
         if (!parkingManager.hasActiveSession()) {
-            return new SessionEndResult(false, "No active session", null);
+            return new SessionEndResult(false, "err_no_active_session", null);
         }
 
         ParkingSession activeSession = parkingManager.getActiveSession();
@@ -70,10 +71,10 @@ public class SessionController {
         if (completedSession != null && vehicle != null && spot != null) {
             // Add to history
             historyManager.addHistory(completedSession, vehicle, spot);
-            return new SessionEndResult(true, "Session ended successfully", completedSession);
+            return new SessionEndResult(true, "msg_session_completed", completedSession);
         }
 
-        return new SessionEndResult(false, "Failed to end session", null);
+        return new SessionEndResult(false, "err_failed_end", null);
     }
 
     public ParkingSession getActiveSession() {
@@ -103,30 +104,30 @@ public class SessionController {
     // Result classes
     public static class SessionStartResult {
         private boolean success;
-        private String message;
+        private String messageKey; // Changed from 'message' to 'messageKey'
 
-        public SessionStartResult(boolean success, String message) {
+        public SessionStartResult(boolean success, String messageKey) {
             this.success = success;
-            this.message = message;
+            this.messageKey = messageKey;
         }
 
         public boolean isSuccess() { return success; }
-        public String getMessage() { return message; }
+        public String getMessageKey() { return messageKey; }
     }
 
     public static class SessionEndResult {
         private boolean success;
-        private String message;
+        private String messageKey; // Changed from 'message' to 'messageKey'
         private ParkingSession session;
 
-        public SessionEndResult(boolean success, String message, ParkingSession session) {
+        public SessionEndResult(boolean success, String messageKey, ParkingSession session) {
             this.success = success;
-            this.message = message;
+            this.messageKey = messageKey;
             this.session = session;
         }
 
         public boolean isSuccess() { return success; }
-        public String getMessage() { return message; }
+        public String getMessageKey() { return messageKey; }
         public ParkingSession getSession() { return session; }
     }
 }

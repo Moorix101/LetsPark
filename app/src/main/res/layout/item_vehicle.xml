@@ -1,121 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="12dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="3dp">
+    android:layout_marginBottom="16dp"
+    app:cardBackgroundColor="@color/card_bg_white"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="80px"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
 
-        android:padding="16dp">
+        <!-- Color Indicator -->
+        <FrameLayout
+            android:layout_width="48dp"
+            android:layout_height="48dp">
+            
+            <View
+                android:id="@+id/colorIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/circle_bg"/> <!-- Assuming circle_bg or dynamic shape -->
+                
+            <!-- Placeholder for type icon if needed -->
+             <TextView
+                android:id="@+id/defaultBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="★"
+                android:textColor="#FFD700"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+        </FrameLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp">
 
-            <!-- Vehicle Info -->
-            <LinearLayout
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/vehicleName"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:text="My Honda"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#1F2937"/>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/vehicleName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="My Car"
-                        android:textColor="#1F2937"
-                        android:textSize="18sp"
-                        android:textStyle="bold"/>
-
-                    <TextView
-                        android:id="@+id/defaultBadge"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="DEFAULT"
-                        android:textColor="#FFFFFF"
-                        android:textSize="10sp"
-                        android:textStyle="bold"
-                        android:background="#10B981"
-                        android:paddingStart="8dp"
-                        android:paddingEnd="8dp"
-                        android:paddingTop="4dp"
-                        android:paddingBottom="4dp"
-                        android:layout_marginStart="8dp"
-                        android:visibility="gone"/>
-
-                </LinearLayout>
-
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+                
                 <TextView
                     android:id="@+id/vehicleType"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Car"
+                    android:textSize="12sp"
                     android:textColor="#6B7280"
-                    android:textSize="14sp"
-                    android:layout_marginTop="4dp"/>
+                    android:background="#F3F4F6"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="2dp"
+                    android:layout_marginEnd="8dp"/>
 
                 <TextView
                     android:id="@+id/vehiclePlate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="ABC-1234"
-                    android:textColor="#1F2937"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="4dp"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="4dp">
-
-                    <View
-                        android:id="@+id/colorIndicator"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:background="#000000"/>
-
-                    <TextView
-                        android:id="@+id/vehicleColor"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Black"
-                        android:textColor="#6B7280"
-                        android:textSize="12sp"
-                        android:layout_marginStart="6dp"/>
-
-                </LinearLayout>
-
+                    android:textSize="12sp"
+                    android:textColor="#6B7280"/>
             </LinearLayout>
-
-            <!-- Menu Button -->
-            <ImageButton
-                android:id="@+id/btnMenu"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@android:drawable/ic_menu_more"
-                android:contentDescription="Menu"/>
-
+            
+            <!-- Hidden view to keep binding working but we use colorIndicator view above -->
+            <TextView
+                android:id="@+id/vehicleColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
         </LinearLayout>
 
-    </LinearLayout>
+        <ImageButton
+            android:id="@+id/btnMenu"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/ic_menu_more"
+            app:tint="#9CA3AF"/>
 
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

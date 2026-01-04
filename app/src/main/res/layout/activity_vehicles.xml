@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="80px"
+        android:layout_marginTop="@dimen/toolbar_top_margin"
 
         android:orientation="vertical">
 
@@ -36,10 +36,11 @@
                     android:contentDescription="Back"/>
 
                 <TextView
+                    android:id="@+id/tvTitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="My Vehicles"
+                    android:text="@string/title_my_vehicles"
                     android:textColor="#1F2937"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -65,18 +66,20 @@
                 android:textSize="64sp"/>
 
             <TextView
+                android:id="@+id/tvNoVehicles"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="No Vehicles Yet"
+                android:text="@string/msg_no_vehicles"
                 android:textColor="#1F2937"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_marginTop="16dp"/>
 
             <TextView
+                android:id="@+id/tvAddFirst"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add your first vehicle to start parking"
+                android:text="@string/msg_add_first_vehicle"
                 android:textColor="#6B7280"
                 android:textSize="14sp"
                 android:textAlignment="center"
@@ -100,10 +103,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="48dp"
         android:src="@android:drawable/ic_input_add"
-        android:contentDescription="Add Vehicle"
+        android:contentDescription="@string/title_add_vehicle"
         app:tint="#FFFFFF"
-        app:backgroundTint="#2563EB"/>
+        app:backgroundTint="#2563EB"
+        app:fabCustomSize="72dp"
+        app:maxImageSize="32dp"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="@color/card_bg_white"
     app:cardCornerRadius="12dp"
-    app:cardElevation="3dp">
+    app:cardElevation="2dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="80px"
-
         android:padding="16dp">
 
-        <!-- Header -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,28 +25,31 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="15 Nov 2024"
+                android:text="24 Oct 2023"
                 android:textColor="#1F2937"
-                android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textSize="16sp"/>
 
             <TextView
                 android:id="@+id/costText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="25.50 dh"
+                android:text="25.00 MAD"
                 android:textColor="#10B981"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
-
+                android:textStyle="bold"
+                android:textSize="16sp"/>
         </LinearLayout>
 
-        <!-- Details Grid -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E5E7EB"
+            android:layout_marginBottom="12dp"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2">
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -61,19 +61,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Time"
-                    android:textColor="#6B7280"
+                    android:textColor="#9CA3AF"
                     android:textSize="12sp"/>
-
                 <TextView
                     android:id="@+id/timeText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="14:30 - 17:45"
-                    android:textColor="#1F2937"
+                    android:text="14:00 - 16:30"
+                    android:textColor="#4B5563"
                     android:textSize="14sp"
-                    android:textStyle="bold"
                     android:layout_marginTop="2dp"/>
-
             </LinearLayout>
 
             <LinearLayout
@@ -86,82 +83,48 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Duration"
-                    android:textColor="#6B7280"
+                    android:textColor="#9CA3AF"
                     android:textSize="12sp"/>
-
                 <TextView
                     android:id="@+id/durationText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3h 15m"
-                    android:textColor="#1F2937"
+                    android:text="2h 30m"
+                    android:textColor="#4B5563"
                     android:textSize="14sp"
-                    android:textStyle="bold"
                     android:layout_marginTop="2dp"/>
-
             </LinearLayout>
-
         </LinearLayout>
-
+        
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="2"
             android:layout_marginTop="12dp">
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Spot"
-                    android:textColor="#6B7280"
-                    android:textSize="12sp"/>
-
-                <TextView
-                    android:id="@+id/spotText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="A1"
-                    android:textColor="#1F2937"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="2dp"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Vehicle"
-                    android:textColor="#6B7280"
-                    android:textSize="12sp"/>
-
-                <TextView
-                    android:id="@+id/vehicleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="My Car"
-                    android:textColor="#1F2937"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="2dp"/>
-
-            </LinearLayout>
-
+             <TextView
+                 android:id="@+id/vehicleText"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="My Honda"
+                 android:textSize="12sp"
+                 android:textColor="#6B7280"
+                 android:background="#F3F4F6"
+                 android:paddingHorizontal="8dp"
+                 android:paddingVertical="2dp"
+                 android:layout_marginEnd="8dp"/>
+                 
+             <TextView
+                 android:id="@+id/spotText"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="A1"
+                 android:textSize="12sp"
+                 android:textColor="#6B7280"
+                 android:background="#F3F4F6"
+                 android:paddingHorizontal="8dp"
+                 android:paddingVertical="2dp"/>
         </LinearLayout>
 
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>

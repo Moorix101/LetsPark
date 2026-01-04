@@ -27,11 +27,12 @@
             android:layout_centerVertical="true"/>
 
         <TextView
+            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/btnBack"
             android:layout_centerVertical="true"
-            android:text="Select Parking Spot"
+            android:text="@string/title_select_spot"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -70,9 +71,10 @@
                     android:layout_marginEnd="8dp"/>
 
                 <TextView
+                    android:id="@+id/tvLegendFree"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Free"
+                    android:text="@string/legend_free"
                     android:textColor="@color/text_primary"
                     android:textSize="14sp"/>
             </LinearLayout>
@@ -92,9 +94,10 @@
                     android:layout_marginEnd="8dp"/>
 
                 <TextView
+                    android:id="@+id/tvLegendTaken"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Taken"
+                    android:text="@string/legend_taken"
                     android:textColor="@color/text_primary"
                     android:textSize="14sp"/>
             </LinearLayout>
@@ -113,9 +116,10 @@
                     android:layout_marginEnd="8dp"/>
 
                 <TextView
+                    android:id="@+id/tvLegendSelected"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Selected"
+                    android:text="@string/legend_selected"
                     android:textColor="@color/text_primary"
                     android:textSize="14sp"/>
             </LinearLayout>
@@ -183,9 +187,10 @@
                  app:cardCornerRadius="8dp">
                  
                  <TextView
+                     android:id="@+id/tvEntrance"
                      android:layout_width="wrap_content"
                      android:layout_height="wrap_content"
-                     android:text="ENTRANCE"
+                     android:text="@string/label_entrance"
                      android:padding="8dp"
                      android:textStyle="bold"
                      android:textColor="#000000"
@@ -193,11 +198,12 @@
             </androidx.cardview.widget.CardView>
             
             <TextView
+                 android:id="@+id/tvYouAreHere"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:layout_below="@id/road"
                  android:layout_centerHorizontal="true"
-                 android:text="You are here"
+                 android:text="@string/label_you_are_here"
                  android:textColor="#FFFFFF"
                  android:textStyle="bold"
                  android:layout_marginTop="8dp"/>
@@ -216,7 +222,7 @@
             android:id="@+id/BtnStartSession"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:text="Start Session"
+            android:text="@string/btn_start_session"
             android:textAllCaps="false"
             android:textSize="16sp"
             android:textStyle="bold"

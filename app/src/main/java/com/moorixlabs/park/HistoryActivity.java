@@ -14,6 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.moorixlabs.park.models.HistoryManager;
 import com.moorixlabs.park.models.ParkingHistory;
+import com.moorixlabs.park.models.CostCalculator;
+import com.moorixlabs.park.utils.LanguageHelper;
+
 import java.util.List;
 
 /**
@@ -28,6 +31,7 @@ public class HistoryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        LanguageHelper.loadLocale(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
@@ -44,6 +48,9 @@ public class HistoryActivity extends AppCompatActivity {
         ImageButton btnBack = findViewById(R.id.btnBack);
 
         btnBack.setOnClickListener(v -> finish());
+        
+        ((TextView)findViewById(R.id.tvTitle)).setText(R.string.title_history);
+        ((TextView)findViewById(R.id.tvNoHistory)).setText(R.string.msg_no_history);
     }
 
     private void setupRecyclerView() {
@@ -107,7 +114,11 @@ public class HistoryActivity extends AppCompatActivity {
 
         public void bind(ParkingHistory history) {
             dateText.setText(history.getFormattedDate());
-            costText.setText(history.getFormattedCost());
+            
+            // Fix formatting to include currency symbol
+            String currency = itemView.getContext().getString(R.string.currency_symbol);
+            costText.setText(CostCalculator.formatCost(history.getSession().getTotalCost(), currency));
+            
             timeText.setText(history.getFormattedStartTime() + " - " + history.getFormattedEndTime());
             durationText.setText(history.getFormattedDuration());
             spotText.setText(history.getSpot().getLabel());

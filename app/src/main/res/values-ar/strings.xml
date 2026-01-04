@@ -1,0 +1,75 @@
+<resources>
+    <string name="app_name">Park</string>
+    
+    <!-- Home -->
+    <string name="label_welcome">مرحباً، عبد الرحمن</string>
+    <string name="label_available_spots">الأماكن المتاحة</string>
+    <string name="label_active_session">جلسة نشطة</string>
+    <string name="btn_start_parking">بدء الموقف</string>
+    <string name="btn_my_vehicles">مركباتي</string>
+    <string name="btn_history">السجل</string>
+    <string name="rate_per_hour">10 د.م./ساعة</string>
+    <string name="loading">جار التحميل...</string>
+    <string name="active_session_info_template">المكان %1$s • اضغط للعرض</string>
+
+    <!-- Spot Selection -->
+    <string name="title_select_spot">اختر مكان الوقوف</string>
+    <string name="legend_free">متاح</string>
+    <string name="legend_taken">مشغول</string>
+    <string name="legend_selected">محدد</string>
+    <string name="label_entrance">المدخل</string>
+    <string name="label_you_are_here">أنت هنا</string>
+    <string name="btn_start_session">بدء الجلسة</string>
+
+    <!-- Vehicles -->
+    <string name="title_my_vehicles">مركباتي</string>
+    <string name="msg_no_vehicles">لم يتم العثور على مركبات</string>
+    <string name="msg_add_first_vehicle">أضف مركبتك الأولى</string>
+    <string name="label_vehicle_name">اسم المركبة</string>
+    <string name="label_plate">رقم اللوحة</string>
+    <string name="label_color">اللون</string>
+    <string name="btn_save_vehicle">حفظ المركبة</string>
+    <string name="btn_update_vehicle">تحديث المركبة</string>
+    <string name="title_add_vehicle">إضافة مركبة</string>
+    <string name="title_edit_vehicle">تعديل المركبة</string>
+    <string name="vehicle_type_label">نوع المركبة</string>
+
+    <!-- History -->
+    <string name="title_history">السجل</string>
+    <string name="msg_no_history">لا يوجد سجل</string>
+
+    <!-- Session -->
+    <string name="label_current_cost">التكلفة الحالية</string>
+    <string name="label_session_active">الجلسة نشطة</string>
+    <string name="label_session_details">تفاصيل الجلسة</string>
+    <string name="label_parking_spot">مكان الوقوف</string>
+    <string name="label_vehicle">المركبة</string>
+    <string name="label_start_time">وقت البدء</string>
+    <string name="btn_finish_session">إنهاء الجلسة</string>
+    
+    <!-- Dialogs & Messages -->
+    <string name="dialog_finish_session_title">إنهاء الجلسة</string>
+    <string name="dialog_finish_session_msg">التكلفة الإجمالية: %1$s\n\nتأكيد الدفع؟</string>
+    <string name="dialog_confirm">تأكيد</string>
+    <string name="dialog_cancel">إلغاء</string>
+    <string name="msg_session_completed">تم إنهاء الجلسة!</string>
+    <string name="msg_select_spot">يرجى اختيار مكان</string>
+    <string name="msg_fill_all_fields">يرجى ملء جميع الحقول</string>
+    <string name="msg_vehicle_added">تم إضافة المركبة!</string>
+    <string name="msg_vehicle_updated">تم تحديث المركبة!</string>
+
+    <!-- Errors & Status -->
+    <string name="err_session_already_active">توجد جلسة نشطة بالفعل</string>
+    <string name="err_no_vehicles">يرجى إضافة مركبة أولاً</string>
+    <string name="err_no_default_vehicle">لم يتم العثور على مركبة افتراضية</string>
+    <string name="err_invalid_spot">مكان غير صالح</string>
+    <string name="err_spot_occupied">المكان مشغول بالفعل</string>
+    <string name="err_failed_start">فشل بدء الجلسة</string>
+    <string name="err_no_active_session">لا توجد جلسة نشطة</string>
+    <string name="err_failed_end">فشل إنهاء الجلسة</string>
+    <string name="msg_session_started">بدأت الجلسة بنجاح</string>
+    
+    <!-- Common -->
+    <string name="currency_symbol">د.م.</string>
+    <string name="language_selection">اختر اللغة</string>
+</resources>

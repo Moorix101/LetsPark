@@ -1,0 +1,75 @@
+<resources>
+    <string name="app_name">Park</string>
+    
+    <!-- Home -->
+    <string name="label_welcome">Bienvenue, Abderrahmane</string>
+    <string name="label_available_spots">Places Disponibles</string>
+    <string name="label_active_session">Session Active</string>
+    <string name="btn_start_parking">Commencer</string>
+    <string name="btn_my_vehicles">Mes Véhicules</string>
+    <string name="btn_history">Historique</string>
+    <string name="rate_per_hour">10 MAD/heure</string>
+    <string name="loading">Chargement...</string>
+    <string name="active_session_info_template">Place %1$s • Appuyez pour voir</string>
+
+    <!-- Spot Selection -->
+    <string name="title_select_spot">Choisir une place</string>
+    <string name="legend_free">Libre</string>
+    <string name="legend_taken">Occupé</string>
+    <string name="legend_selected">Sélectionné</string>
+    <string name="label_entrance">ENTRÉE</string>
+    <string name="label_you_are_here">Vous êtes ici</string>
+    <string name="btn_start_session">Démarrer la session</string>
+
+    <!-- Vehicles -->
+    <string name="title_my_vehicles">Mes Véhicules</string>
+    <string name="msg_no_vehicles">Aucun véhicule trouvé</string>
+    <string name="msg_add_first_vehicle">Ajoutez votre premier véhicule</string>
+    <string name="label_vehicle_name">Nom du véhicule</string>
+    <string name="label_plate">Immatriculation</string>
+    <string name="label_color">Couleur</string>
+    <string name="btn_save_vehicle">Enregistrer</string>
+    <string name="btn_update_vehicle">Mettre à jour</string>
+    <string name="title_add_vehicle">Ajouter un véhicule</string>
+    <string name="title_edit_vehicle">Modifier le véhicule</string>
+    <string name="vehicle_type_label">Type de véhicule</string>
+
+    <!-- History -->
+    <string name="title_history">Historique</string>
+    <string name="msg_no_history">Aucun historique trouvé</string>
+
+    <!-- Session -->
+    <string name="label_current_cost">Coût Actuel</string>
+    <string name="label_session_active">Session Active</string>
+    <string name="label_session_details">Détails de la session</string>
+    <string name="label_parking_spot">Place de parking</string>
+    <string name="label_vehicle">Véhicule</string>
+    <string name="label_start_time">Heure de début</string>
+    <string name="btn_finish_session">Terminer la session</string>
+    
+    <!-- Dialogs & Messages -->
+    <string name="dialog_finish_session_title">Terminer la session</string>
+    <string name="dialog_finish_session_msg">Coût total : %1$s\n\nConfirmer le paiement ?</string>
+    <string name="dialog_confirm">Confirmer</string>
+    <string name="dialog_cancel">Annuler</string>
+    <string name="msg_session_completed">Session terminée !</string>
+    <string name="msg_select_spot">Veuillez sélectionner une place</string>
+    <string name="msg_fill_all_fields">Veuillez remplir tous les champs</string>
+    <string name="msg_vehicle_added">Véhicule ajouté !</string>
+    <string name="msg_vehicle_updated">Véhicule mis à jour !</string>
+
+    <!-- Errors & Status -->
+    <string name="err_session_already_active">Une session est déjà active</string>
+    <string name="err_no_vehicles">Veuillez d\'abord ajouter un véhicule</string>
+    <string name="err_no_default_vehicle">Aucun véhicule par défaut trouvé</string>
+    <string name="err_invalid_spot">Place invalide</string>
+    <string name="err_spot_occupied">La place est déjà occupée</string>
+    <string name="err_failed_start">Échec du démarrage de la session</string>
+    <string name="err_no_active_session">Aucune session active</string>
+    <string name="err_failed_end">Échec de la fin de session</string>
+    <string name="msg_session_started">Session démarrée avec succès</string>
+    
+    <!-- Common -->
+    <string name="currency_symbol">MAD</string>
+    <string name="language_selection">Choisir la langue</string>
+</resources>
