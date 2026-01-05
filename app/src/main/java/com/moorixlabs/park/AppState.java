@@ -1,14 +1,11 @@
 package com.moorixlabs.park;
 
-
 import com.moorixlabs.park.models.HistoryManager;
 import com.moorixlabs.park.models.ParkingManager;
 import com.moorixlabs.park.models.PaymentManager;
 import com.moorixlabs.park.models.VehicleManager;
+import com.moorixlabs.park.models.UserManager;
 
-/**
- * Pure Java Singleton to maintain app state across activities
- */
 public class AppState {
     private static AppState instance;
 
@@ -16,12 +13,14 @@ public class AppState {
     private VehicleManager vehicleManager;
     private HistoryManager historyManager;
     private PaymentManager paymentManager;
+    private UserManager userManager;
 
     private AppState() {
         parkingManager = new ParkingManager();
         vehicleManager = new VehicleManager();
         historyManager = new HistoryManager();
         paymentManager = new PaymentManager();
+        userManager = new UserManager();
     }
 
     public static AppState getInstance() {
@@ -31,19 +30,9 @@ public class AppState {
         return instance;
     }
 
-    public ParkingManager getParkingManager() {
-        return parkingManager;
-    }
-
-    public VehicleManager getVehicleManager() {
-        return vehicleManager;
-    }
-
-    public HistoryManager getHistoryManager() {
-        return historyManager;
-    }
-    
-    public PaymentManager getPaymentManager() {
-        return paymentManager;
-    }
+    public ParkingManager getParkingManager() { return parkingManager; }
+    public VehicleManager getVehicleManager() { return vehicleManager; }
+    public HistoryManager getHistoryManager() { return historyManager; }
+    public PaymentManager getPaymentManager() { return paymentManager; }
+    public UserManager getUserManager() { return userManager; }
 }

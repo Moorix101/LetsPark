@@ -2,7 +2,7 @@
     <string name="app_name">Park</string>
     
     <!-- Home -->
-    <string name="label_welcome">Bienvenue, Abderrahmane</string>
+    <string name="label_welcome">Bienvenue</string>
     <string name="label_available_spots">Places Disponibles</string>
     <string name="label_active_session">Session Active</string>
     <string name="btn_start_parking">Commencer</string>
@@ -11,6 +11,44 @@
     <string name="rate_per_hour">10 MAD/heure</string>
     <string name="loading">Chargement...</string>
     <string name="active_session_info_template">Place %1$s • Appuyez pour voir</string>
+
+    
+    <!-- User Management -->
+    
+    <!-- Welcome & Account -->
+    <string name="welcome_subtitle">Le stationnement intelligent en toute simplicité</string>
+    <string name="welcome_title">Bienvenue à Park !</string>
+    <string name="welcome_description">Gérez vos sessions de stationnement, vos véhicules et vos paiements en un seul endroit</string>
+    <string name="btn_get_started">Commencer</string>
+    <string name="app_version">v1.0.0</string>
+    <string name="project_details">Cette application a été réalisée par des étudiants GI pour le professeur Baddi.</string>
+    <string name="developer_names">Développeurs: Abderrahmane Aboutalib / Anas X / Hamza Khayi</string>
+    
+    <!-- Create Account -->
+    <string name="create_account_title">Créer un compte</string>
+    <string name="create_account_subtitle">Préparons votre configuration</string>
+    <string name="label_full_name">Nom Complet</string>
+    <string name="label_email">Adresse E-mail</string>
+    <string name="label_phone">Numéro de Téléphone</string>
+    <string name="btn_create_account">Créer un compte</string>
+    
+    <!-- Profile -->
+    <string name="title_profile">Profil</string>
+    <string name="label_profile">Profil</string>
+    <string name="label_account_info">Informations du Compte</string>
+    <string name="label_settings">Paramètres</string>
+    <string name="label_total_sessions">Sessions</string>
+    <string name="label_total_vehicles">Véhicules</string>
+    <string name="btn_logout">Se déconnecter</string>
+    <string name="dialog_logout_title">Se déconnecter</string>
+    <string name="dialog_logout_msg">Êtes-vous sûr de vouloir vous déconnecter ?</string>
+    
+    <!-- Messages -->
+    <string name="msg_account_created">Compte créé avec succès !</string>
+    <string name="err_name_required">Veuillez entrer votre nom</string>
+    <string name="err_email_required">Veuillez entrer votre adresse e-mail</string>
+    <string name="err_invalid_email">Veuillez entrer une adresse e-mail valide</string>
+    <string name="err_phone_required">Veuillez entrer votre numéro de téléphone</string>
 
     <!-- Spot Selection -->
     <string name="title_select_spot">Choisir une place</string>

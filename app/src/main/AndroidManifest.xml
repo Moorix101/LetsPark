@@ -12,15 +12,31 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
 
-            <!-- Main Activity (Home) -->
+            <!-- Welcome Activity (Launcher) -->
             <activity
-                android:name=".MainActivity"
+                android:name=".WelcomeActivity"
                 android:exported="true">
                 <intent-filter>
                     <action android:name="android.intent.action.MAIN" />
                     <category android:name="android.intent.category.LAUNCHER" />
                 </intent-filter>
             </activity>
+
+            <!-- Create Account Activity -->
+            <activity
+                android:name=".CreateAccountActivity"
+                android:exported="false"
+                android:windowSoftInputMode="adjustResize" />
+            
+            <!-- Profile Activity -->
+            <activity
+                android:name=".ProfileActivity"
+                android:exported="false" />
+
+            <!-- Main Activity (Home) -->
+            <activity
+                android:name=".MainActivity"
+                android:exported="false" />
 
             <!-- Spot Selection Activity -->
             <activity

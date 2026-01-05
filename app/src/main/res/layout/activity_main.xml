@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Header Container with Padding for Status Bar -->
+        <!-- Header Container with Profile Button -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,26 +30,30 @@
                 android:textSize="32sp"
                 android:textStyle="bold" />
                 
+            <!-- Profile Button (Replaces Language Button) -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/profileButtonContainer"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignTop="@id/tvAppName"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="0dp"
-                app:cardBackgroundColor="#20FFFFFF">
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFFFFF">
 
                 <ImageButton
-                    android:id="@+id/btnLanguageSwitch"
+                    android:id="@+id/btnProfile"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="?attr/selectableItemBackground"
-                    android:contentDescription="@string/language_selection"
-                    android:src="@drawable/language"
+                    android:contentDescription="@string/label_profile"
+                    android:src="@android:drawable/ic_menu_myplaces"
                     android:scaleType="fitCenter"
-                    android:padding="8dp"/>
+                    android:padding="8dp"
+                    app:tint="@color/primary_green"/>
             </androidx.cardview.widget.CardView>
 
+            <!-- User Greeting (Replaces static welcome) -->
             <TextView
                 android:id="@+id/tvUserName"
                 android:layout_width="wrap_content"
@@ -192,34 +196,39 @@
                     app:cornerRadius="16dp" />
             </androidx.cardview.widget.CardView>
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginBottom="24dp">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/btnVehicles"
                     android:layout_width="0dp"
                     android:layout_height="140dp"
-                    android:layout_weight="1"
                     android:layout_marginEnd="8dp"
                     android:clickable="true"
                     android:foreground="?attr/selectableItemBackground"
                     app:cardBackgroundColor="@color/card_bg_white"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="4dp">
+                    app:cardCornerRadius="0dp"
+                    app:cardElevation="4dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btnHistory">
 
-                    <LinearLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical"
                         android:padding="16dp">
 
                         <FrameLayout
+                            android:id="@+id/vehiclesIconContainer"
                             android:layout_width="56dp"
                             android:layout_height="56dp"
-                            android:background="@drawable/header_gradient_green_rounded">
+                            android:background="@drawable/header_gradient_green_rounded"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toTopOf="@+id/vehiclesText">
                              <ImageView
                                  android:layout_width="match_parent"
                                  android:layout_height="match_parent"
@@ -229,6 +238,7 @@
                         </FrameLayout>
 
                         <TextView
+                            android:id="@+id/vehiclesText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
@@ -236,33 +246,42 @@
                             android:textColor="@color/text_primary"
                             android:textSize="14sp"
                             android:textStyle="bold"
-                            android:gravity="center"/>
-                    </LinearLayout>
+                            android:gravity="center"
+                            app:layout_constraintTop_toBottomOf="@id/vehiclesIconContainer"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/btnHistory"
                     android:layout_width="0dp"
                     android:layout_height="140dp"
-                    android:layout_weight="1"
                     android:layout_marginStart="8dp"
                     android:clickable="true"
                     android:foreground="?attr/selectableItemBackground"
                     app:cardBackgroundColor="@color/card_bg_white"
-                    app:cardCornerRadius="20dp"
-                    app:cardElevation="4dp">
+                    app:cardCornerRadius="0dp"
+                    app:cardElevation="4dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btnVehicles"
+                    app:layout_constraintEnd_toEndOf="parent">
 
-                    <LinearLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical"
                         android:padding="16dp">
 
                         <FrameLayout
+                            android:id="@+id/historyIconContainer"
                             android:layout_width="56dp"
                             android:layout_height="56dp"
-                            android:background="@drawable/header_gradient_green_rounded">
+                            android:background="@drawable/header_gradient_green_rounded"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toTopOf="@+id/historyText">
                             <ImageView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -272,6 +291,7 @@
                         </FrameLayout>
 
                         <TextView
+                            android:id="@+id/historyText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
@@ -279,10 +299,14 @@
                             android:textColor="@color/text_primary"
                             android:textSize="14sp"
                             android:textStyle="bold"
-                            android:gravity="center"/>
-                    </LinearLayout>
+                            android:gravity="center"
+                            app:layout_constraintTop_toBottomOf="@id/historyIconContainer"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

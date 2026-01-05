@@ -2,7 +2,7 @@
     <string name="app_name">Park</string>
     
     <!-- Home -->
-    <string name="label_welcome">Welcome, Abderrahmane</string>
+    <string name="label_welcome">Welcome</string>
     <string name="label_available_spots">Available Spots</string>
     <string name="label_active_session">Active Session</string>
     <string name="btn_start_parking">Start Parking</string>
@@ -11,6 +11,44 @@
     <string name="rate_per_hour">10 MAD/hour</string>
     <string name="loading">Loading...</string>
     <string name="active_session_info_template">Spot %1$s • Tap to view</string>
+
+    
+    <!-- User Management -->
+    
+    <!-- Welcome & Account -->
+    <string name="welcome_subtitle">Smart Parking Made Simple</string>
+    <string name="welcome_title">Welcome to Park!</string>
+    <string name="welcome_description">Manage your parking sessions, vehicles, and payments all in one place</string>
+    <string name="btn_get_started">Get Started</string>
+    <string name="app_version">v1.0.0</string>
+    <string name="project_details">This app was made by GI students for Professor Baddi.</string>
+    <string name="developer_names">Developers: Abderrahmane Aboutalib / Anas X / Hamza Khayi</string>
+    
+    <!-- Create Account -->
+    <string name="create_account_title">Create Account</string>
+    <string name="create_account_subtitle">Let\'s get you set up</string>
+    <string name="label_full_name">Full Name</string>
+    <string name="label_email">Email Address</string>
+    <string name="label_phone">Phone Number</string>
+    <string name="btn_create_account">Create Account</string>
+    
+    <!-- Profile -->
+    <string name="title_profile">Profile</string>
+    <string name="label_profile">Profile</string>
+    <string name="label_account_info">Account Information</string>
+    <string name="label_settings">Settings</string>
+    <string name="label_total_sessions">Sessions</string>
+    <string name="label_total_vehicles">Vehicles</string>
+    <string name="btn_logout">Logout</string>
+    <string name="dialog_logout_title">Logout</string>
+    <string name="dialog_logout_msg">Are you sure you want to logout?</string>
+    
+    <!-- Messages -->
+    <string name="msg_account_created">Account created successfully!</string>
+    <string name="err_name_required">Please enter your name</string>
+    <string name="err_email_required">Please enter your email</string>
+    <string name="err_invalid_email">Please enter a valid email</string>
+    <string name="err_phone_required">Please enter your phone number</string>
 
     <!-- Spot Selection -->
     <string name="title_select_spot">Select Parking Spot</string>

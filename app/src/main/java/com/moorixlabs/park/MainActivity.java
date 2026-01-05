@@ -1,68 +1,54 @@
 package com.moorixlabs.park;
 
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.app.AlertDialog;
-
 import androidx.cardview.widget.CardView;
 import com.moorixlabs.park.models.SessionController;
 import com.moorixlabs.park.models.HistoryManager;
 import com.moorixlabs.park.models.ParkingManager;
 import com.moorixlabs.park.models.VehicleManager;
+import com.moorixlabs.park.models.UserManager;
 import com.moorixlabs.park.models.ParkingSession;
 import com.moorixlabs.park.models.CostCalculator;
 import com.moorixlabs.park.utils.LanguageHelper;
 
-/**
- * MainActivity - Minimal bridge between UI and Pure Java logic
- */
 public class MainActivity extends AppCompatActivity {
 
-    // Pure Java managers (99% of logic)
     private ParkingManager parkingManager;
     private VehicleManager vehicleManager;
     private HistoryManager historyManager;
+    private UserManager userManager;
     private SessionController sessionController;
 
-    // UI elements (1% of code)
     private TextView availableSpotsText;
     private TextView hourlyRateText;
     private CardView activeSessionCard;
     private TextView activeSessionInfo;
     private Button btnStartParking;
-    private CardView btnVehicles; // Changed from Button to CardView
-    private CardView btnHistory;  // Changed from Button to CardView
-    private ImageButton btnLanguageSwitch;
+    private CardView btnVehicles;
+    private CardView btnHistory;
+    private ImageButton btnProfile;
+    private TextView tvUserGreeting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // Load saved language before content view
         LanguageHelper.loadLocale(this);
-        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialize pure Java managers
         initializeManagers();
-
-        // Bind UI elements
         bindViews();
-
-        // Set click listeners
         setupListeners();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        // Update UI with latest data from pure Java layer
         updateDashboard();
     }
 
@@ -70,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         parkingManager = AppState.getInstance().getParkingManager();
         vehicleManager = AppState.getInstance().getVehicleManager();
         historyManager = AppState.getInstance().getHistoryManager();
+        userManager = AppState.getInstance().getUserManager();
         sessionController = new SessionController(parkingManager, vehicleManager, historyManager);
     }
 
@@ -81,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
         btnStartParking = findViewById(R.id.btnStartParking);
         btnVehicles = findViewById(R.id.btnVehicles);
         btnHistory = findViewById(R.id.btnHistory);
-        btnLanguageSwitch = findViewById(R.id.btnLanguageSwitch);
+        btnProfile = findViewById(R.id.btnProfile);
+        tvUserGreeting = findViewById(R.id.tvUserName);
     }
 
     private void setupListeners() {
@@ -105,22 +93,10 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
         
-        btnLanguageSwitch.setOnClickListener(v -> showLanguageDialog());
-    }
-    
-    private void showLanguageDialog() {
-        String[] languages = {"English", "Français", "العربية"};
-        new AlertDialog.Builder(this)
-            .setTitle(getString(R.string.language_selection))
-            .setItems(languages, (dialog, which) -> {
-                String selectedLang = "en";
-                if (which == 1) selectedLang = "fr";
-                else if (which == 2) selectedLang = "ar";
-                
-                LanguageHelper.setLocale(this, selectedLang);
-                recreate();
-            })
-            .show();
+        btnProfile.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void updateDashboard() {
@@ -133,9 +109,11 @@ public class MainActivity extends AppCompatActivity {
         // Update UI
         availableSpotsText.setText(available + " / " + total);
         
-        // Use localized string for formatting
         String currencySymbol = getString(R.string.currency_symbol);
         hourlyRateText.setText((int)rate + " " + currencySymbol + "/h");
+
+        // Update greeting with user name
+        tvUserGreeting.setText(userManager.getGreeting());
 
         if (hasSession) {
             activeSessionCard.setVisibility(View.VISIBLE);

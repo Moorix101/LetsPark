@@ -38,6 +38,6 @@ public class LanguageHelper {
 
     public static String getCurrentLanguage(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
-        return prefs.getString(KEY_LANGUAGE, "en");
+        return prefs.getString(KEY_LANGUAGE, "fr");
     }
 }

@@ -12,6 +12,44 @@
     <string name="loading">جار التحميل...</string>
     <string name="active_session_info_template">المكان %1$s • اضغط للعرض</string>
 
+    
+    <!-- User Management -->
+    
+    <!-- Welcome & Account -->
+    <string name="welcome_subtitle">مواقف ذكية ببساطة</string>
+    <string name="welcome_title">مرحباً بك في بارك!</string>
+    <string name="welcome_description">إدارة جلسات وقوف السيارات والمركبات والمدفوعات في مكان واحد</string>
+    <string name="btn_get_started">ابدأ الآن</string>
+    <string name="app_version">الإصدار 1.0.0</string>
+    <string name="project_details">تم إنشاء هذا التطبيق من قبل طلاب GI للأستاذ بادي.</string>
+    <string name="developer_names">المطورون: عبد الرحمن أبوطالب / أنس إكس / حمزة خيي</string>
+    
+    <!-- Create Account -->
+    <string name="create_account_title">إنشاء حساب</string>
+    <string name="create_account_subtitle">لنقم بإعدادك</string>
+    <string name="label_full_name">الاسم الكامل</string>
+    <string name="label_email">عنوان البريد الإلكتروني</string>
+    <string name="label_phone">رقم الهاتف</string>
+    <string name="btn_create_account">إنشاء حساب</string>
+    
+    <!-- Profile -->
+    <string name="title_profile">الملف الشخصي</string>
+    <string name="label_profile">الملف الشخصي</string>
+    <string name="label_account_info">معلومات الحساب</string>
+    <string name="label_settings">الإعدادات</string>
+    <string name="label_total_sessions">الجلسات</string>
+    <string name="label_total_vehicles">المركبات</string>
+    <string name="btn_logout">تسجيل الخروج</string>
+    <string name="dialog_logout_title">تسجيل الخروج</string>
+    <string name="dialog_logout_msg">هل أنت متأكد أنك تريد تسجيل الخروج؟</string>
+    
+    <!-- Messages -->
+    <string name="msg_account_created">تم إنشاء الحساب بنجاح!</string>
+    <string name="err_name_required">الرجاء إدخال اسمك</string>
+    <string name="err_email_required">الرجاء إدخال بريدك الإلكتروني</string>
+    <string name="err_invalid_email">الرجاء إدخال بريد إلكتروني صالح</string>
+    <string name="err_phone_required">الرجاء إدخال رقم هاتفك</string>
+
     <!-- Spot Selection -->
     <string name="title_select_spot">اختر مكان الوقوف</string>
     <string name="legend_free">متاح</string>
