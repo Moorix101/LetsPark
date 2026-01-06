@@ -113,7 +113,7 @@ L’application suit une structure **MVC** inspirée :
 |-------------------------|----------------|
 | Anas ElMarihi           | Développeur Java |
 | Abderrahmane Aboutalib  | UI Designer     |
-| Hamza Khayi             | Testeur Mobile  |
+| Hamza Khayi             | Développeur Java Secondaire  |
 
 ---
 
