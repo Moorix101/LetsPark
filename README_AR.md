@@ -3,7 +3,7 @@
 <p align="center">
   <a href="README_EN.md">🇬🇧 English</a> | 
   <a href="README.md"> Francais</a> | 
-  <a href="#releases">📦 Releases</a>
+  <a href="https://github.com/Moorix101/LetsPark/releases/tag/v1.0">📦 Releases</a>
 </p>
 
 
@@ -60,7 +60,7 @@
 ### الخيار 1: تثبيت APK (موصى به)
 
 1. هاتف أندرويد مطلوب  
-2. انتقل إلى قسم 📦  [Releases](#releases)  
+2. انتقل إلى قسم <a href="https://github.com/Moorix101/LetsPark/releases/tag/v1.0">📦 Releases</a>
 3. تحميل أحدث APK  
 4. السماح بالتثبيت من مصادر غير معروفة  
    (الإعدادات > الأمان > مصادر غير معروفة)  
@@ -101,4 +101,4 @@
 
 ## 📦 Releases
 
-لتحميل APK، راجع قسم [Releases](#releases).
+لتحميل APK، راجع قسم <a href="https://github.com/Moorix101/LetsPark/releases/tag/v1.0">📦 Releases</a>.
