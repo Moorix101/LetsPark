@@ -4,15 +4,12 @@ package com.moorixlabs.park.models;
 import java.io.Serializable;
 import java.util.UUID;
 
-/**
- * Pure Java model representing a parking session
- */
 public class ParkingSession implements Serializable {
     private String sessionId;
     private String spotId;
     private String vehicleId;
     private long startTime;
-    private Long endTime; // Nullable for active sessions
+    private Long endTime;
     private double totalCost;
     private boolean isActive;
 
@@ -26,7 +23,6 @@ public class ParkingSession implements Serializable {
         this.isActive = true;
     }
 
-    // Constructor for deserialization
     public ParkingSession(String sessionId, String spotId, String vehicleId,
                           long startTime, Long endTime, double totalCost, boolean isActive) {
         this.sessionId = sessionId;
@@ -38,7 +34,6 @@ public class ParkingSession implements Serializable {
         this.isActive = isActive;
     }
 
-    // Getters
     public String getSessionId() { return sessionId; }
     public String getSpotId() { return spotId; }
     public String getVehicleId() { return vehicleId; }
@@ -47,7 +42,6 @@ public class ParkingSession implements Serializable {
     public double getTotalCost() { return totalCost; }
     public boolean isActive() { return isActive; }
 
-    // Business methods
     public void endSession(long endTime, double finalCost) {
         this.endTime = endTime;
         this.totalCost = finalCost;

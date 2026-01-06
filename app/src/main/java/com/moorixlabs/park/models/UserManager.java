@@ -3,9 +3,6 @@ package com.moorixlabs.park.models;
 import android.content.Context;
 import com.moorixlabs.park.R;
 
-/**
- * Pure Java manager for user account operations
- */
 public class UserManager {
     private User currentUser;
 
@@ -44,7 +41,6 @@ public class UserManager {
         this.currentUser = null;
     }
 
-    // Get greeting based on time of day
     public String getGreeting(Context context) {
         if (currentUser == null) return context.getString(R.string.greeting_welcome);
         

@@ -10,13 +10,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Pure Java service for data serialization/deserialization
- * Android Activity will handle actual file I/O
- */
 public class DataPersistence {
 
-    // Vehicle serialization
     public static JSONObject vehicleToJson(Vehicle vehicle) {
         JSONObject json = new JSONObject();
         try {
@@ -71,7 +66,6 @@ public class DataPersistence {
         return vehicles;
     }
 
-    // Session serialization
     public static JSONObject sessionToJson(ParkingSession session) {
         JSONObject json = new JSONObject();
         try {
@@ -106,7 +100,6 @@ public class DataPersistence {
         }
     }
 
-    // Spot serialization
     public static JSONObject spotToJson(ParkingSpot spot) {
         JSONObject json = new JSONObject();
         try {

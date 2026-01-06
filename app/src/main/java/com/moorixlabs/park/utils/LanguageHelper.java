@@ -29,11 +29,10 @@ public class LanguageHelper {
         Resources resources = context.getResources();
         Configuration config = resources.getConfiguration();
         config.setLocale(locale);
-        config.setLayoutDirection(locale); // Support RTL
+        config.setLayoutDirection(locale);
 
         resources.updateConfiguration(config, resources.getDisplayMetrics());
 
-        // Save preference
         SharedPreferences.Editor editor = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE).edit();
         editor.putString(KEY_LANGUAGE, languageCode);
         editor.apply();
@@ -41,7 +40,7 @@ public class LanguageHelper {
 
     public static String getCurrentLanguage(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
-        return prefs.getString(KEY_LANGUAGE, "en"); // Changed default to 'en' as per welcome screen
+        return prefs.getString(KEY_LANGUAGE, "en");
     }
 
     public static void showLanguageDialog(Activity activity) {
@@ -53,7 +52,7 @@ public class LanguageHelper {
         builder.setItems(languages, (dialog, which) -> {
             String selectedCode = codes[which];
             setLocale(activity, selectedCode);
-            activity.recreate(); // Reload activity to apply changes
+            activity.recreate();
         });
         builder.show();
     }

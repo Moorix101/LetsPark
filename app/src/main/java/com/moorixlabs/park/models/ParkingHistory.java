@@ -6,9 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-/**
- * Pure Java model for historical parking records
- */
 public class ParkingHistory implements Serializable {
     private ParkingSession session;
     private Vehicle vehicle;

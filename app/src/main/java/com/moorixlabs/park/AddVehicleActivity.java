@@ -19,9 +19,6 @@ import com.moorixlabs.park.models.VehicleManager;
 import com.moorixlabs.park.models.Vehicle;
 import com.moorixlabs.park.utils.LanguageHelper;
 
-/**
- * AddVehicleActivity - Enhanced UI for vehicle creation
- */
 public class AddVehicleActivity extends AppCompatActivity {
 
     private VehicleManager vehicleManager;
@@ -31,7 +28,6 @@ public class AddVehicleActivity extends AppCompatActivity {
     private Button btnSave;
     private TextView toolbarTitle;
     
-    // Preview Elements
     private TextView previewName, previewPlate;
     private android.view.View previewIconBg;
 
@@ -56,7 +52,6 @@ public class AddVehicleActivity extends AppCompatActivity {
 
         vehicleManager = AppState.getInstance().getVehicleManager();
 
-        // Check if editing
         editingVehicleId = getIntent().getStringExtra("vehicleId");
 
         bindViews();
@@ -106,7 +101,6 @@ public class AddVehicleActivity extends AppCompatActivity {
             chip.setOnCheckedChangeListener((buttonView, isChecked) -> {
                 if (isChecked) {
                     selectedType = type;
-                    // Reset styling for others handled by ChipGroup singleSelection
                 }
             });
             
@@ -116,7 +110,6 @@ public class AddVehicleActivity extends AppCompatActivity {
 
     private void setupColorGrid() {
         for (String color : QUICK_COLORS) {
-            // Using a container to create a border effect since CardView.setStroke is only available in newer Material components or XML
             CardView container = new CardView(this);
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
             params.width = 130;
@@ -127,7 +120,6 @@ public class AddVehicleActivity extends AppCompatActivity {
             container.setRadius(65);
             container.setCardElevation(0);
             
-            // Inner color card
             CardView innerCard = new CardView(this);
             android.widget.FrameLayout.LayoutParams innerParams = new android.widget.FrameLayout.LayoutParams(
                 110, 110
@@ -138,9 +130,8 @@ public class AddVehicleActivity extends AppCompatActivity {
             innerCard.setCardBackgroundColor(Color.parseColor(color));
             innerCard.setCardElevation(4);
             
-            // Selection logic
             if (color.equals(selectedColor)) {
-                container.setCardBackgroundColor(Color.parseColor("#10B981")); // Green ring
+                container.setCardBackgroundColor(Color.parseColor("#10B981"));
             } else {
                 container.setCardBackgroundColor(Color.TRANSPARENT);
             }
@@ -205,11 +196,9 @@ public class AddVehicleActivity extends AppCompatActivity {
             selectedColor = vehicle.getColor();
             selectedType = vehicle.getType();
             
-            // Update Chips
             chipGroupType.removeAllViews();
             setupChips();
             
-            // Update Color Grid
             colorGrid.removeAllViews();
             setupColorGrid();
             

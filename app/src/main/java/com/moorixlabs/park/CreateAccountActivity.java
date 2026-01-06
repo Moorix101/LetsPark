@@ -88,7 +88,6 @@ public class CreateAccountActivity extends AppCompatActivity {
         String email = etEmail.getText().toString().trim();
         String phone = etPhone.getText().toString().trim();
 
-        // Validation
         if (fullName.isEmpty()) {
             Toast.makeText(this, getString(R.string.err_name_required), Toast.LENGTH_SHORT).show();
             return;
@@ -99,16 +98,13 @@ public class CreateAccountActivity extends AppCompatActivity {
             return;
         }
 
-        // Create user
         userManager.createUser(fullName, email, phone);
         
-        // Save to SharedPreferences
         User user = userManager.getCurrentUser();
         UserPreferences.saveUser(this, user);
         
         Toast.makeText(this, getString(R.string.msg_account_created), Toast.LENGTH_SHORT).show();
 
-        // Go to main activity
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);

@@ -3,9 +3,6 @@ package com.moorixlabs.park.models;
 
 import java.io.Serializable;
 
-/**
- * Pure Java model representing a parking spot
- */
 public class ParkingSpot implements Serializable {
     private String spotId;
     private String label;
@@ -19,14 +16,12 @@ public class ParkingSpot implements Serializable {
         this.currentSessionId = null;
     }
 
-    // Getters
     public String getSpotId() { return spotId; }
     public String getLabel() { return label; }
     public boolean isOccupied() { return isOccupied; }
     public boolean isFree() { return !isOccupied; }
     public String getCurrentSessionId() { return currentSessionId; }
 
-    // Business logic
     public void occupy(String sessionId) {
         this.isOccupied = true;
         this.currentSessionId = sessionId;

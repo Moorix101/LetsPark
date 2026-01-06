@@ -4,10 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import com.moorixlabs.park.models.User;
 
-/**
- * Pure Android utility for user data persistence
- * Saves/loads user from SharedPreferences
- */
 public class UserPreferences {
     private static final String PREF_NAME = "UserPrefs";
     private static final String KEY_USER_ID = "user_id";

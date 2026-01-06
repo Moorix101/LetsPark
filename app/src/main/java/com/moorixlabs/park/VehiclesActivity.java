@@ -22,9 +22,6 @@ import com.moorixlabs.park.utils.LanguageHelper;
 
 import java.util.List;
 
-/**
- * VehiclesActivity - Minimal bridge for vehicle management
- */
 public class VehiclesActivity extends AppCompatActivity {
 
     private VehicleManager vehicleManager;
@@ -69,7 +66,7 @@ public class VehiclesActivity extends AppCompatActivity {
     }
 
     private void setupListeners() {
-        // FAB click handled in bindViews
+        
     }
 
     private void setupRecyclerView() {

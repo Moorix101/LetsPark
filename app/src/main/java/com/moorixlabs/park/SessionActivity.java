@@ -24,9 +24,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-/**
- * SessionActivity - Minimal bridge for live session tracking
- */
 public class SessionActivity extends AppCompatActivity {
 
     private static final int PAYMENT_REQUEST_CODE = 1001;
@@ -46,7 +43,6 @@ public class SessionActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // Load Locale
         LanguageHelper.loadLocale(this);
         
         super.onCreate(savedInstanceState);
@@ -86,7 +82,6 @@ public class SessionActivity extends AppCompatActivity {
 
         btnHome.setOnClickListener(v -> goHome());
         
-        // Update Labels from Resources
         ((TextView)findViewById(R.id.label_session_active_title)).setText(R.string.label_session_active);
         ((TextView)findViewById(R.id.label_current_cost)).setText(R.string.label_current_cost);
         ((TextView)findViewById(R.id.label_session_details)).setText(R.string.label_session_details);

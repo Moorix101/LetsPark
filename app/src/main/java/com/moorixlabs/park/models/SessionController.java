@@ -4,9 +4,6 @@ package com.moorixlabs.park.models;
 import com.moorixlabs.park.models.HistoryManager;
 import com.moorixlabs.park.models.ParkingManager;
 
-/**
- * Pure Java controller for session operations
- */
 public class SessionController {
     private ParkingManager parkingManager;
     private VehicleManager vehicleManager;
@@ -20,25 +17,20 @@ public class SessionController {
         this.historyManager = historyManager;
     }
 
-    // Now returns keys instead of hardcoded English strings
     public SessionStartResult startSession(String spotId) {
-        // Check if there's already an active session
         if (parkingManager.hasActiveSession()) {
             return new SessionStartResult(false, "err_session_already_active");
         }
 
-        // Check if user has vehicles
         if (!vehicleManager.hasVehicles()) {
             return new SessionStartResult(false, "err_no_vehicles");
         }
 
-        // Get default vehicle
         Vehicle vehicle = vehicleManager.getDefaultVehicle();
         if (vehicle == null) {
             return new SessionStartResult(false, "err_no_default_vehicle");
         }
 
-        // Check if spot is available
         ParkingSpot spot = parkingManager.getSpotById(spotId);
         if (spot == null) {
             return new SessionStartResult(false, "err_invalid_spot");
@@ -47,7 +39,6 @@ public class SessionController {
             return new SessionStartResult(false, "err_spot_occupied");
         }
 
-        // Start the session
         boolean success = parkingManager.startSession(spotId, vehicle.getId());
         if (success) {
             return new SessionStartResult(true, "msg_session_started");
@@ -65,11 +56,9 @@ public class SessionController {
         Vehicle vehicle = vehicleManager.getVehicleById(activeSession.getVehicleId());
         ParkingSpot spot = parkingManager.getSpotById(activeSession.getSpotId());
 
-        // End the session
         ParkingSession completedSession = parkingManager.endSession();
 
         if (completedSession != null && vehicle != null && spot != null) {
-            // Add to history
             historyManager.addHistory(completedSession, vehicle, spot);
             return new SessionEndResult(true, "msg_session_completed", completedSession);
         }
@@ -101,10 +90,9 @@ public class SessionController {
         return parkingManager.getSpotById(spotId);
     }
 
-    // Result classes
     public static class SessionStartResult {
         private boolean success;
-        private String messageKey; // Changed from 'message' to 'messageKey'
+        private String messageKey;
 
         public SessionStartResult(boolean success, String messageKey) {
             this.success = success;
@@ -117,7 +105,7 @@ public class SessionController {
 
     public static class SessionEndResult {
         private boolean success;
-        private String messageKey; // Changed from 'message' to 'messageKey'
+        private String messageKey;
         private ParkingSession session;
 
         public SessionEndResult(boolean success, String messageKey, ParkingSession session) {

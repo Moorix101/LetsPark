@@ -1,8 +1,5 @@
 package com.moorixlabs.park.models;
 
-/**
- * Pure Java manager for user account operations
- */
 public class UserManager {
     private User currentUser;
 
@@ -41,7 +38,6 @@ public class UserManager {
         this.currentUser = null;
     }
 
-    // Get greeting based on time of day
     public String getGreeting() {
         if (currentUser == null) return "Welcome";
         

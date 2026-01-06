@@ -4,9 +4,6 @@ package com.moorixlabs.park.models;
 import java.io.Serializable;
 import java.util.UUID;
 
-/**
- * Pure Java model representing a vehicle
- */
 public class Vehicle implements Serializable {
     private String id;
     private String name;
@@ -26,7 +23,6 @@ public class Vehicle implements Serializable {
         this.createdAt = System.currentTimeMillis();
     }
 
-    // Constructor for deserialization
     public Vehicle(String id, String name, String type, String plateNumber,
                    String color, boolean isDefault, long createdAt) {
         this.id = id;
@@ -38,7 +34,6 @@ public class Vehicle implements Serializable {
         this.createdAt = createdAt;
     }
 
-    // Getters
     public String getId() { return id; }
     public String getName() { return name; }
     public String getType() { return type; }
@@ -47,7 +42,6 @@ public class Vehicle implements Serializable {
     public boolean isDefault() { return isDefault; }
     public long getCreatedAt() { return createdAt; }
 
-    // Setters
     public void setName(String name) { this.name = name; }
     public void setType(String type) { this.type = type; }
     public void setPlateNumber(String plateNumber) { this.plateNumber = plateNumber; }

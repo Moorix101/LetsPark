@@ -3,9 +3,6 @@ package com.moorixlabs.park.models;
 
 import java.util.Locale;
 
-/**
- * Pure Java utility for time calculations
- */
 public class TimeCalculator {
 
     public static long millisecondsToSeconds(long millis) {

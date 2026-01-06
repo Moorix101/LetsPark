@@ -4,9 +4,6 @@ package com.moorixlabs.park.models;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Pure Java manager for vehicle operations
- */
 public class VehicleManager {
     private List<Vehicle> vehicles;
 
@@ -15,7 +12,6 @@ public class VehicleManager {
     }
 
     public void addVehicle(Vehicle vehicle) {
-        // If this is the first vehicle, make it default
         if (vehicles.isEmpty()) {
             vehicle.setDefault(true);
         }
@@ -50,7 +46,6 @@ public class VehicleManager {
         if (toRemove != null) {
             vehicles.remove(toRemove);
 
-            // If we removed the default vehicle, make the first one default
             if (wasDefault && !vehicles.isEmpty()) {
                 vehicles.get(0).setDefault(true);
             }
@@ -58,12 +53,10 @@ public class VehicleManager {
     }
 
     public void setDefaultVehicle(String vehicleId) {
-        // First, unset all defaults
         for (Vehicle v : vehicles) {
             v.setDefault(false);
         }
 
-        // Then set the new default
         for (Vehicle v : vehicles) {
             if (v.getId().equals(vehicleId)) {
                 v.setDefault(true);

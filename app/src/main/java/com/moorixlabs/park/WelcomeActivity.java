@@ -10,12 +10,6 @@ import com.moorixlabs.park.models.User;
 import com.moorixlabs.park.utils.LanguageHelper;
 import com.moorixlabs.park.utils.UserPreferences;
 
-/**
- * Welcome/Splash Activity
- * - Loads saved user data
- * - If user exists: auto-navigate to MainActivity
- * - If no user: show welcome screen
- */
 public class WelcomeActivity extends AppCompatActivity {
 
     @Override
@@ -23,20 +17,16 @@ public class WelcomeActivity extends AppCompatActivity {
         LanguageHelper.loadLocale(this);
         super.onCreate(savedInstanceState);
         
-        // Initialize app (load saved user)
         initializeApp();
     }
 
     private void initializeApp() {
-        // Load saved user from SharedPreferences
         User savedUser = UserPreferences.loadUser(this);
         
         if (savedUser != null) {
-            // User exists - set in manager and navigate to main
             AppState.getInstance().getUserManager().setCurrentUser(savedUser);
             navigateToMain();
         } else {
-            // No user - show welcome screen
             showWelcomeScreen();
         }
     }
@@ -47,7 +37,6 @@ public class WelcomeActivity extends AppCompatActivity {
         Button btnGetStarted = findViewById(R.id.btnGetStarted);
         btnGetStarted.setOnClickListener(v -> navigateToCreateAccount());
 
-        // Setup language button
         ImageButton btnLanguage = findViewById(R.id.btnLanguage);
         btnLanguage.setOnClickListener(v -> {
             LanguageHelper.showLanguageDialog(this);
@@ -55,7 +44,6 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void navigateToMain() {
-        // Small delay for smooth transition
         new Handler().postDelayed(() -> {
             Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
             startActivity(intent);

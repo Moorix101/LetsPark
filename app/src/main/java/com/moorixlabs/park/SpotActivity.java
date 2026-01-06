@@ -21,9 +21,6 @@ import com.moorixlabs.park.utils.LanguageHelper;
 
 import java.util.List;
 
-/**
- * SpotActivity - Minimal bridge for spot selection
- */
 public class SpotActivity extends AppCompatActivity {
 
     private ParkingManager parkingManager;
@@ -63,7 +60,6 @@ public class SpotActivity extends AppCompatActivity {
 
         btnBack.setOnClickListener(v -> finish());
         
-        // Update Labels from Resources
         ((TextView)findViewById(R.id.tvTitle)).setText(R.string.title_select_spot);
         ((TextView)findViewById(R.id.tvLegendFree)).setText(R.string.legend_free);
         ((TextView)findViewById(R.id.tvLegendTaken)).setText(R.string.legend_taken);
@@ -80,7 +76,6 @@ public class SpotActivity extends AppCompatActivity {
         rightSpotsContainer.removeAllViews();
         List<ParkingSpot> spots = parkingManager.getAllSpots();
 
-        // Split spots: 50% left, 50% right
         int midPoint = (int) Math.ceil(spots.size() / 2.0);
 
         for (int i = 0; i < spots.size(); i++) {
@@ -98,24 +93,17 @@ public class SpotActivity extends AppCompatActivity {
     private CardView createSpotCard(ParkingSpot spot) {
         CardView card = new CardView(this);
 
-        // Set layout params for Grid items (1 column)
         GridLayout.LayoutParams params = new GridLayout.LayoutParams();
-        params.width = 300; // Fixed width or match_parent equivalent
-        params.height = 180; // Taller spots
-        params.setMargins(16, 24, 16, 24); // More separation vertically
-        // Note: GridLayout.spec is needed if we want specific row/col placement, 
-        // but auto-placement works if we just add views. 
-        // However, defining width is tricky in code without strict context. 
-        // Let's set a reasonable fixed size for "realistic" look.
+        params.width = 300;
+        params.height = 180;
+        params.setMargins(16, 24, 16, 24);
         
         card.setLayoutParams(params);
 
-        // Card styling
         card.setRadius(12);
         card.setCardElevation(0);
-        card.setUseCompatPadding(false); // We handle margins manually
+        card.setUseCompatPadding(false);
 
-        // Text view for label
         android.widget.TextView text = new android.widget.TextView(this);
         text.setText(spot.getLabel());
         text.setTextSize(18);
@@ -123,13 +111,12 @@ public class SpotActivity extends AppCompatActivity {
         text.setGravity(Gravity.CENTER);
         text.setTextAlignment(android.view.View.TEXT_ALIGNMENT_CENTER);
 
-        // Apply Figma Status Colors
         if (spot.isOccupied()) {
-            card.setCardBackgroundColor(Color.parseColor("#ef4444")); // Red
+            card.setCardBackgroundColor(Color.parseColor("#ef4444"));
             card.setAlpha(0.6f);
             card.setClickable(false);
         } else {
-            card.setCardBackgroundColor(Color.parseColor("#22c55e")); // Green
+            card.setCardBackgroundColor(Color.parseColor("#22c55e"));
             card.setClickable(true);
             card.setOnClickListener(v -> selectSpot(spot, card));
         }
@@ -139,13 +126,10 @@ public class SpotActivity extends AppCompatActivity {
     }
 
     private void selectSpot(ParkingSpot spot, CardView card) {
-        // Reset all cards in LEFT container
         resetContainerCards(leftSpotsContainer);
-        // Reset all cards in RIGHT container
         resetContainerCards(rightSpotsContainer);
 
-        // Highlight selected
-        card.setCardBackgroundColor(Color.parseColor("#3B82F6")); // Blue
+        card.setCardBackgroundColor(Color.parseColor("#3B82F6"));
         selectedSpotId = spot.getSpotId();
         btnStartSession.setEnabled(true);
     }
@@ -155,15 +139,10 @@ public class SpotActivity extends AppCompatActivity {
             android.view.View child = container.getChildAt(i);
             if (child instanceof CardView) {
                 CardView c = (CardView) child;
-                // We need to check if the spot associated with this card is free.
-                // Since we don't have a direct map from View -> Spot here easily 
-                // without tagging, let's rely on the color check or re-fetch.
-                // A better way is to set tag on create.
                 
-                // Hacky check: if alpha is 0.6, it's occupied (Red). Don't touch it.
                 if (c.getAlpha() < 0.9f) continue;
 
-                c.setCardBackgroundColor(Color.parseColor("#22c55e")); // Reset to Green
+                c.setCardBackgroundColor(Color.parseColor("#22c55e"));
             }
         }
     }
@@ -182,7 +161,6 @@ public class SpotActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         } else {
-            // Translate the error key to a localized message
             String message = getLocalizedMessage(result.getMessageKey());
             Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         }
@@ -193,6 +171,6 @@ public class SpotActivity extends AppCompatActivity {
         if (resId != 0) {
             return getString(resId);
         }
-        return key; // Fallback to key if not found
+        return key;
     }
 }

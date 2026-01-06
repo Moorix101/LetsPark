@@ -19,9 +19,6 @@ import com.moorixlabs.park.utils.LanguageHelper;
 
 import java.util.List;
 
-/**
- * HistoryActivity - Minimal bridge for history display
- */
 public class HistoryActivity extends AppCompatActivity {
 
     private HistoryManager historyManager;
@@ -115,7 +112,6 @@ public class HistoryActivity extends AppCompatActivity {
         public void bind(ParkingHistory history) {
             dateText.setText(history.getFormattedDate());
             
-            // Fix formatting to include currency symbol
             String currency = itemView.getContext().getString(R.string.currency_symbol);
             costText.setText(CostCalculator.formatCost(history.getSession().getTotalCost(), currency));
             

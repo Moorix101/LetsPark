@@ -10,9 +10,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-/**
- * Pure Java manager for parking history
- */
 public class HistoryManager {
     private List<ParkingHistory> historyList;
 
@@ -26,7 +23,6 @@ public class HistoryManager {
     }
 
     public List<ParkingHistory> getAllHistory() {
-        // Return sorted by most recent first
         List<ParkingHistory> sorted = new ArrayList<>(historyList);
         Collections.sort(sorted, new Comparator<ParkingHistory>() {
             @Override

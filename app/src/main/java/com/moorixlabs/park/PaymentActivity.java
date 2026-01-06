@@ -34,7 +34,6 @@ public class PaymentActivity extends AppCompatActivity {
 
         paymentManager = AppState.getInstance().getPaymentManager();
         
-        // Get data from Intent
         amount = getIntent().getDoubleExtra("amount", 0.0);
         sessionId = getIntent().getStringExtra("sessionId");
         duration = getIntent().getLongExtra("duration", 0);
@@ -87,7 +86,6 @@ public class PaymentActivity extends AppCompatActivity {
         dialog.setCancelable(false);
         dialog.show();
 
-        // Simulate Inspector Confirmation (4 seconds)
         new Handler().postDelayed(() -> {
             if (!isFinishing()) {
                 dialog.dismiss();
@@ -97,13 +95,11 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
     private void processCardPayment() {
-        // Show standard loading
         ProgressDialog dialog = new ProgressDialog(this);
         dialog.setMessage(getString(R.string.msg_processing_payment));
         dialog.setCancelable(false);
         dialog.show();
 
-        // Simulate API (1.5 seconds)
         new Handler().postDelayed(() -> {
             if (!isFinishing()) {
                 dialog.dismiss();

@@ -3,7 +3,7 @@ package com.moorixlabs.park.models;
 import java.util.Random;
 
 public class PaymentManager {
-    private double userBalance = 100.0; // Simulated prepaid balance
+    private double userBalance = 100.0;
     private Random random = new Random();
 
     public static class PaymentResult {
@@ -17,9 +17,7 @@ public class PaymentManager {
     }
 
     public PaymentResult processPayment(Payment payment) {
-        // Simulate processing is done in background usually, but here we just return result logic
         
-        // Simulate success/failure (95% success rate for non-balance methods)
         boolean networkSuccess = random.nextDouble() > 0.05;
 
         if (payment.getMethod() == Payment.PaymentMethod.PREPAID_BALANCE) {

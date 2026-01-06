@@ -3,11 +3,8 @@ package com.moorixlabs.park.models;
 
 import java.util.Locale;
 
-/**
- * Pure Java utility for cost calculations
- */
 public class CostCalculator {
-    private static final double DEFAULT_HOURLY_RATE = 10.0; // dh per hour
+    private static final double DEFAULT_HOURLY_RATE = 10.0;
 
     public static double calculateCost(long durationMillis, double hourlyRate) {
         double hours = durationMillis / (1000.0 * 60.0 * 60.0);
@@ -27,12 +24,10 @@ public class CostCalculator {
         return calculateCostFromStart(startTimeMillis, DEFAULT_HOURLY_RATE);
     }
 
-    // Updated: Pass currency symbol from UI layer
     public static String formatCost(double cost, String currencySymbol) {
         return String.format(Locale.getDefault(), "%.2f %s", cost, currencySymbol);
     }
 
-    // Updated: Pass currency symbol from UI layer
     public static String formatHourlyRate(double rate, String currencySymbol) {
         return String.format(Locale.getDefault(), "%.0f %s/hour", rate, currencySymbol);
     }

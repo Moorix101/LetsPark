@@ -7,9 +7,6 @@ import com.moorixlabs.park.models.CostCalculator;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Pure Java manager for parking operations
- */
 public class ParkingManager {
     private static final int TOTAL_SPOTS = 20;
     private List<ParkingSpot> spots;
@@ -72,7 +69,7 @@ public class ParkingManager {
 
     public boolean startSession(String spotId, String vehicleId) {
         if (activeSession != null) {
-            return false; // Already has active session
+            return false;
         }
 
         ParkingSpot spot = getSpotById(spotId);
@@ -98,7 +95,6 @@ public class ParkingManager {
 
         activeSession.endSession(endTime, cost);
 
-        // Release the spot
         ParkingSpot spot = getSpotById(activeSession.getSpotId());
         if (spot != null) {
             spot.release();

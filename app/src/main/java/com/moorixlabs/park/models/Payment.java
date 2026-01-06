@@ -28,7 +28,6 @@ public class Payment implements Serializable {
         this.timestamp = System.currentTimeMillis();
     }
 
-    // Getters
     public String getId() { return id; }
     public String getSessionId() { return sessionId; }
     public double getAmount() { return amount; }
@@ -36,6 +35,5 @@ public class Payment implements Serializable {
     public PaymentStatus getStatus() { return status; }
     public long getTimestamp() { return timestamp; }
 
-    // Setters
     public void setStatus(PaymentStatus status) { this.status = status; }
 }

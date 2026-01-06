@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
     private CardView cardNoVehicleWarning;
     private Button btnAddVehicleWarning;
     
-    // Track language to detect changes
     private String currentLanguageCode;
 
     @Override
@@ -46,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        // Save current language code
         currentLanguageCode = LanguageHelper.getCurrentLanguage(this);
 
         initializeManagers();
@@ -58,10 +56,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         
-        // Check if language changed while away (e.g. in Profile)
         String savedLanguage = LanguageHelper.getCurrentLanguage(this);
         if (!currentLanguageCode.equals(savedLanguage)) {
-            recreate(); // Restart activity to apply new language
+            recreate();
             return;
         }
         
@@ -123,30 +120,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateDashboard() {
-        // Get data from pure Java layer
         int available = parkingManager.getAvailableSpots();
         int total = parkingManager.getTotalSpots();
         double rate = parkingManager.getHourlyRate();
         boolean hasSession = sessionController.hasActiveSession();
         boolean hasVehicles = vehicleManager.hasVehicles();
 
-        // Update UI
         availableSpotsText.setText(available + " / " + total);
         
         String currencySymbol = getString(R.string.currency_symbol);
         hourlyRateText.setText((int)rate + " " + currencySymbol + "/h");
 
-        // Update greeting with user name
         tvUserGreeting.setText(userManager.getGreeting(this));
 
-        // Check for vehicles
         if (!hasVehicles) {
             cardNoVehicleWarning.setVisibility(View.VISIBLE);
-            // Optional: Hide or disable Start Parking if no vehicle
-            // btnStartParking.setEnabled(false); 
         } else {
             cardNoVehicleWarning.setVisibility(View.GONE);
-            // btnStartParking.setEnabled(true);
         }
 
         if (hasSession) {
