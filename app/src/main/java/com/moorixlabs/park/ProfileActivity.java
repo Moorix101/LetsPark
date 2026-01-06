@@ -37,8 +37,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void bindViews() {
         ImageButton btnBack = findViewById(R.id.btnBack);
-        ImageButton btnEdit = findViewById(R.id.btnEdit);
-        
+
         tvInitials = findViewById(R.id.tvInitials);
         tvUserName = findViewById(R.id.tvUserName);
         tvUserEmail = findViewById(R.id.tvUserEmail);
@@ -51,9 +50,7 @@ public class ProfileActivity extends AppCompatActivity {
         btnLogout = findViewById(R.id.btnLogout);
 
         btnBack.setOnClickListener(v -> finish());
-        btnEdit.setOnClickListener(v -> {
-            Toast.makeText(this, "Edit profile coming soon!", Toast.LENGTH_SHORT).show();
-        });
+        ;
     }
 
     private void setupListeners() {

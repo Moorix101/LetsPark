@@ -68,8 +68,6 @@ public class SpotActivity extends AppCompatActivity {
         ((TextView)findViewById(R.id.tvLegendFree)).setText(R.string.legend_free);
         ((TextView)findViewById(R.id.tvLegendTaken)).setText(R.string.legend_taken);
         ((TextView)findViewById(R.id.tvLegendSelected)).setText(R.string.legend_selected);
-        ((TextView)findViewById(R.id.tvEntrance)).setText(R.string.label_entrance);
-        ((TextView)findViewById(R.id.tvYouAreHere)).setText(R.string.label_you_are_here);
         btnStartSession.setText(R.string.btn_start_session);
     }
 

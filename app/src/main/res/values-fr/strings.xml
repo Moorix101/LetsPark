@@ -12,15 +12,32 @@
     <string name="loading">Chargement...</string>
     <string name="active_session_info_template">Place %1$s • Appuyez pour voir</string>
 
-    
-    <!-- User Management -->
-    
-    <!-- Welcome & Account -->
-    <string name="welcome_subtitle">Le stationnement intelligent en toute simplicité</string>
-    <string name="welcome_title">Bienvenue à Park !</string>
-    <string name="welcome_description">Gérez vos sessions de stationnement, vos véhicules et vos paiements en un seul endroit</string>
+    <!-- Welcome Screen -->
+    <string name="welcome_subtitle">Stationnement Intelligent Simplifié</string>
+    <string name="welcome_title">Bienvenue sur Park!</string>
+    <string name="welcome_description">Gérez vos sessions de stationnement, véhicules et paiements en un seul endroit. Profitez d\'une gestion de stationnement sans tracas.</string>
     <string name="btn_get_started">Commencer</string>
-    <string name="app_version">v1.0.0</string>
+
+
+    <!-- Membres de l'équipe -->
+    <string name="label_developed_by">DÉVELOPPÉ PAR</string>
+    <string name="project_team">Équipe de projet</string>
+
+    <string name="member1_name">Anas ElMarihi</string>
+    <string name="member1_role">Développeur Java</string>
+
+    <string name="member2_name">Abderrahmane Aboutalib</string>
+    <string name="member2_role">Designer UI</string>
+
+    <string name="member3_name">Hamza Khayi</string>
+    <string name="member3_role">Testeur d’application mobile</string>
+
+
+    <string name="university_name">Ecole Superieur de Technologie</string>
+    <string name="project_year">Année Académique 2025–2026</string>
+    
+    <string name="app_version">Version 1.0.0</string>
+    
     <string name="project_details">Cette application a été réalisée par des étudiants GI pour le professeur Baddi.</string>
     <string name="developer_names">Développeurs: Abderrahmane Aboutalib / Anas X / Hamza Khayi</string>
     
@@ -31,6 +48,12 @@
     <string name="label_email">Adresse E-mail</string>
     <string name="label_phone">Numéro de Téléphone</string>
     <string name="btn_create_account">Créer un compte</string>
+    <string name="label_preview">APERÇU</string>
+    <string name="your_name_here">Votre Nom Ici</string>
+    <string name="label_your_profile">Votre Profil</string>
+    <string name="label_account_details">Détails du Compte</string>
+    <string name="label_email_optional">Email (Optionnel)</string>
+    <string name="privacy_note">Vos informations sont stockées localement sur votre appareil uniquement. Nous ne partageons jamais vos données.</string>
     
     <!-- Profile -->
     <string name="title_profile">Profil</string>
@@ -106,7 +129,34 @@
     <string name="err_no_active_session">Aucune session active</string>
     <string name="err_failed_end">Échec de la fin de session</string>
     <string name="msg_session_started">Session démarrée avec succès</string>
+
+
+    <!-- Paiement -->
+    <string name="title_payment">Paiement</string>
+    <string name="label_payment_summary">Résumé du paiement</string>
+    <string name="label_duration">Durée</string>
+    <string name="label_total_amount">Montant total</string>
+    <string name="label_payment_method">Sélectionner le mode de paiement</string>
+    <string name="method_cash">Espèces</string>
+    <string name="method_card">Carte bancaire</string>
+    <string name="method_wallet">Portefeuille mobile</string>
+    <string name="method_prepaid">Solde prépayé</string>
+    <string name="btn_pay_now">Payer maintenant</string>
+    <string name="msg_processing_payment">Traitement du paiement...</string>
+    <string name="msg_payment_success">Paiement réussi !</string>
+    <string name="err_payment_failed">Échec du paiement</string>
+    <string name="err_insufficient_balance">Solde insuffisant</string>
     
+    <!-- Cash Payment Dialog -->
+    <string name="dialog_cash_title">Attente de l\'inspecteur</string>
+    <string name="dialog_cash_msg">Veuillez payer en espèces à l\'inspecteur du parking.\n\nEn attente de confirmation...</string>
+    <string name="msg_cash_success">Paiement confirmé par l\'inspecteur !</string>
+
+    <!-- Add Vehicle Prompt -->
+    <string name="msg_add_vehicle_first">Vous devez ajouter un véhicule avant de pouvoir stationner.</string>
+    <string name="btn_add_vehicle">Ajouter un véhicule</string>
+    <string name="title_add_vehicle_needed">Ajout de véhicule requis</string>
+
     <!-- Common -->
     <string name="currency_symbol">MAD</string>
     <string name="language_selection">Choisir la langue</string>

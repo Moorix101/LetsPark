@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     private TextInputEditText etFullName, etEmail, etPhone;
     private TextView tvInitialsPreview;
     private Button btnCreateAccount;
+    private ImageButton btnLanguage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         etPhone = findViewById(R.id.etPhone);
         tvInitialsPreview = findViewById(R.id.tvInitialsPreview);
         btnCreateAccount = findViewById(R.id.btnCreateAccount);
+        btnLanguage = findViewById(R.id.btnLanguage);
     }
 
     private void setupListeners() {
@@ -56,6 +59,12 @@ public class CreateAccountActivity extends AppCompatActivity {
         });
 
         btnCreateAccount.setOnClickListener(v -> createAccount());
+        
+        if (btnLanguage != null) {
+            btnLanguage.setOnClickListener(v -> {
+                LanguageHelper.showLanguageDialog(this);
+            });
+        }
     }
 
     private void updateInitialsPreview(String name) {
@@ -84,17 +93,6 @@ public class CreateAccountActivity extends AppCompatActivity {
             Toast.makeText(this, getString(R.string.err_name_required), Toast.LENGTH_SHORT).show();
             return;
         }
-
-        // This one for validating email
-        // if (email.isEmpty()) {
-        //     Toast.makeText(this, getString(R.string.err_email_required), Toast.LENGTH_SHORT).show();
-        //     return;
-        // }
-
-        // if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-        //     Toast.makeText(this, getString(R.string.err_invalid_email), Toast.LENGTH_SHORT).show();
-        //     return;
-        // }
 
         if (phone.isEmpty()) {
             Toast.makeText(this, getString(R.string.err_phone_required), Toast.LENGTH_SHORT).show();

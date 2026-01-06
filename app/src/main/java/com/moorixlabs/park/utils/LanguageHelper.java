@@ -1,9 +1,12 @@
 package com.moorixlabs.park.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import androidx.appcompat.app.AlertDialog;
+import com.moorixlabs.park.R;
 import java.util.Locale;
 
 public class LanguageHelper {
@@ -38,6 +41,20 @@ public class LanguageHelper {
 
     public static String getCurrentLanguage(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
-        return prefs.getString(KEY_LANGUAGE, "fr");
+        return prefs.getString(KEY_LANGUAGE, "en"); // Changed default to 'en' as per welcome screen
+    }
+
+    public static void showLanguageDialog(Activity activity) {
+        String[] languages = {"English", "Français", "العربية"};
+        String[] codes = {"en", "fr", "ar"};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+        builder.setTitle(activity.getString(R.string.language_selection));
+        builder.setItems(languages, (dialog, which) -> {
+            String selectedCode = codes[which];
+            setLocale(activity, selectedCode);
+            activity.recreate(); // Reload activity to apply changes
+        });
+        builder.show();
     }
 }

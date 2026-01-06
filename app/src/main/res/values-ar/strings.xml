@@ -15,12 +15,30 @@
     
     <!-- User Management -->
     
-    <!-- Welcome & Account -->
-    <string name="welcome_subtitle">مواقف ذكية ببساطة</string>
+    <!-- Welcome Screen -->
+    <string name="welcome_subtitle">إدارة المواقف بذكاء</string>
     <string name="welcome_title">مرحباً بك في بارك!</string>
-    <string name="welcome_description">إدارة جلسات وقوف السيارات والمركبات والمدفوعات في مكان واحد</string>
+    <string name="welcome_description">أدر جلسات المواقف، المركبات والمدفوعات في مكان واحد. استمتع بإدارة سهلة للمواقف.</string>
     <string name="btn_get_started">ابدأ الآن</string>
+    
+    <!-- Team Section -->
+    <string name="label_developed_by">تطوير</string>
+    <string name="project_team">فريق المشروع</string>
+    
+    <string name="member1_name">أنس المريحي</string>
+    <string name="member1_role">مطور رئيسي</string>
+    
+    <string name="member2_name">عبد الرحمان أبو طالب</string>
+    <string name="member2_role">مصمم واجهات</string>
+    
+    <string name="member3_name">حمزة خيي</string>
+    <string name="member3_role">مهندس جودة</string>
+    
+    <string name="university_name">المدرسة العليا للتكنولوجيا</string>
+    <string name="project_year">السنة الأكاديمية 2025–2026</string>
+    
     <string name="app_version">الإصدار 1.0.0</string>
+
     <string name="project_details">تم إنشاء هذا التطبيق من قبل طلاب GI للأستاذ بادي.</string>
     <string name="developer_names">المطورون: عبد الرحمن أبوطالب / أنس إكس / حمزة خيي</string>
     
@@ -110,4 +128,39 @@
     <!-- Common -->
     <string name="currency_symbol">د.م.</string>
     <string name="language_selection">اختر اللغة</string>
+    
+    <!-- Create Account additions -->
+    <string name="label_preview">معاينة</string>
+    <string name="your_name_here">اسمك هنا</string>
+    <string name="label_your_profile">ملفك الشخصي</string>
+    <string name="label_account_details">تفاصيل الحساب</string>
+    <string name="label_email_optional">البريد الإلكتروني (اختياري)</string>
+    <string name="privacy_note">يتم تخزين معلوماتك محلياً على جهازك فقط. لن نشارك بياناتك أبداً.</string>
+    <string name="btn_create_account_text">إنشاء حسابي</string>
+
+    <!-- Add Vehicle Prompt -->
+    <string name="msg_add_vehicle_first">يجب عليك إضافة مركبة قبل أن تتمكن من الوقوف.</string>
+    <string name="btn_add_vehicle">إضافة مركبة</string>
+    <string name="title_add_vehicle_needed">إضافة مركبة مطلوب</string>
+
+    <!-- Payment -->
+    <string name="title_payment">الدفع</string>
+    <string name="label_payment_summary">ملخص الدفع</string>
+    <string name="label_duration">المدة</string>
+    <string name="label_total_amount">المبلغ الإجمالي</string>
+    <string name="label_payment_method">اختر طريقة الدفع</string>
+    <string name="method_cash">نقداً</string>
+    <string name="method_card">بطاقة ائتمان</string>
+    <string name="method_wallet">محفظة الهاتف</string>
+    <string name="method_prepaid">رصيد مسبق الدفع</string>
+    <string name="btn_pay_now">ادفع الآن</string>
+    <string name="msg_processing_payment">جاري معالجة الدفع...</string>
+    <string name="msg_payment_success">تم الدفع بنجاح!</string>
+    <string name="err_payment_failed">فشل الدفع</string>
+    <string name="err_insufficient_balance">رصيد غير كاف</string>
+    
+    <!-- Cash Payment Dialog -->
+    <string name="dialog_cash_title">في انتظار المفتش</string>
+    <string name="dialog_cash_msg">يرجى دفع النقود لمفتش الموقف.\n\nفي انتظار التأكيد...</string>
+    <string name="msg_cash_success">تم تأكيد الدفع من قبل المفتش!</string>
 </resources>

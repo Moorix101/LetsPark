@@ -15,12 +15,32 @@
     
     <!-- User Management -->
     
-    <!-- Welcome & Account -->
+    <!-- Welcome Screen -->
     <string name="welcome_subtitle">Smart Parking Made Simple</string>
     <string name="welcome_title">Welcome to Park!</string>
-    <string name="welcome_description">Manage your parking sessions, vehicles, and payments all in one place</string>
+    <string name="welcome_description">Manage your parking sessions, vehicles, and payments all in one place. Experience hassle-free parking management.</string>
     <string name="btn_get_started">Get Started</string>
-    <string name="app_version">v1.0.0</string>
+    
+    <!-- Team Section -->
+    <string name="label_developed_by">DEVELOPED BY</string>
+    <string name="project_team">Project Team</string>
+    
+    <!-- Team Members - CUSTOMIZE THESE -->
+    <string name="member1_name">Anas ElMarihi</string>
+    <string name="member1_role">Lead Developer</string>
+    
+    <string name="member2_name">Abderrahmane Aboutalib</string>
+    <string name="member2_role">UI/UX Designer</string>
+    
+    <string name="member3_name">Hamza Khayi</string>
+    <string name="member3_role">QA Engineer</string>
+    
+    <!-- Project Info - CUSTOMIZE THESE -->
+    <string name="university_name">Ecole Superieur de Technologie</string>
+    <string name="project_year">Academic Year 2025–2026</string>
+    
+    <string name="app_version">Version 1.0.0</string>
+
     <string name="project_details">This app was made by GI students for Professor Baddi.</string>
     <string name="developer_names">Developers: Abderrahmane Aboutalib / Anas X / Hamza Khayi</string>
     
@@ -30,7 +50,13 @@
     <string name="label_full_name">Full Name</string>
     <string name="label_email">Email Address</string>
     <string name="label_phone">Phone Number</string>
-    <string name="btn_create_account">Create Account</string>
+    <string name="btn_create_account">Create My Account</string>
+    <string name="label_preview">PREVIEW</string>
+    <string name="your_name_here">Your Name Here</string>
+    <string name="label_your_profile">Your Profile</string>
+    <string name="label_account_details">Account Details</string>
+    <string name="label_email_optional">Email (Optional)</string>
+    <string name="privacy_note">Your information is stored locally on your device only. We never share your data.</string>
     
     <!-- Profile -->
     <string name="title_profile">Profile</string>
@@ -44,8 +70,8 @@
     <string name="dialog_logout_msg">Are you sure you want to logout?</string>
     
     <!-- Messages -->
-    <string name="msg_account_created">Account created successfully!</string>
-    <string name="err_name_required">Please enter your name</string>
+    <string name="msg_account_created">Welcome! Your account has been created</string>
+    <string name="err_name_required">Please enter your full name</string>
     <string name="err_email_required">Please enter your email</string>
     <string name="err_invalid_email">Please enter a valid email</string>
     <string name="err_phone_required">Please enter your phone number</string>
@@ -101,6 +127,11 @@
     <string name="err_payment_failed">Payment Failed</string>
     <string name="err_insufficient_balance">Insufficient Balance</string>
     
+    <!-- Cash Payment Dialog -->
+    <string name="dialog_cash_title">Waiting for Inspector</string>
+    <string name="dialog_cash_msg">Please pay cash to the Parking Inspector.\n\nWaiting for confirmation...</string>
+    <string name="msg_cash_success">Payment confirmed by Inspector!</string>
+    
     <!-- Dialogs & Messages -->
     <string name="dialog_finish_session_title">Finish Session</string>
     <string name="dialog_finish_session_msg">Total cost: %1$s\n\nProceed to payment?</string>
@@ -123,6 +154,18 @@
     <string name="err_failed_end">Failed to end session</string>
     <string name="msg_session_started">Session started successfully</string>
     
+    <!-- Add Vehicle Prompt -->
+    <string name="msg_add_vehicle_first">You need to add a vehicle before you can start parking.</string>
+    <string name="btn_add_vehicle">Add Vehicle</string>
+    <string name="title_add_vehicle_needed">Add Vehicle Required</string>
+    
+    <!-- Greetings -->
+    <string name="greeting_morning">Good Morning</string>
+    <string name="greeting_afternoon">Good Afternoon</string>
+    <string name="greeting_evening">Good Evening</string>
+    <string name="greeting_welcome">Welcome</string>
+    <string name="greeting_format">%1$s, %2$s</string>
+
     <!-- Common -->
     <string name="currency_symbol">MAD</string>
     <string name="language_selection">Choose Language</string>

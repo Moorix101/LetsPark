@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Button;
+import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 import com.moorixlabs.park.models.User;
 import com.moorixlabs.park.utils.LanguageHelper;
@@ -45,6 +46,12 @@ public class WelcomeActivity extends AppCompatActivity {
         
         Button btnGetStarted = findViewById(R.id.btnGetStarted);
         btnGetStarted.setOnClickListener(v -> navigateToCreateAccount());
+
+        // Setup language button
+        ImageButton btnLanguage = findViewById(R.id.btnLanguage);
+        btnLanguage.setOnClickListener(v -> {
+            LanguageHelper.showLanguageDialog(this);
+        });
     }
 
     private void navigateToMain() {

@@ -1,134 +1,283 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F7FA"
-    android:fillViewport="true">
+    android:background="#F5F7FA">
 
-    <LinearLayout
+    <!-- Header -->
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp">
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
 
-        <!-- Header -->
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/create_account_title"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:textColor="#1F2937"
-            android:layout_marginTop="48dp"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginTop="24dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/circle_bg"
+                android:src="@android:drawable/ic_menu_revert"
+                app:tint="@color/primary_green"
+                android:padding="12dp"
+                android:contentDescription="Back"
+                android:visibility="gone"/>
+
+             <!-- Language Button added to the Toolbar -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/btnLanguage"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="end"
+                android:background="@drawable/circle_bg"
+                android:src="@drawable/language"
+                android:scaleType="fitCenter"
+                android:padding="12dp"
+                android:elevation="10dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="@string/language_selection" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/create_account_subtitle"
-            android:textSize="16sp"
-            android:textColor="#6B7280"
-            android:layout_marginBottom="32dp"/>
+            android:orientation="vertical"
+            android:padding="32dp">
 
-        <!-- Avatar Preview -->
-        <FrameLayout
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="32dp">
+            <!-- Header Text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/create_account_title"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                android:textColor="#1F2937"
+                android:layout_marginBottom="8dp"/>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/create_account_subtitle"
+                android:textSize="16sp"
+                android:textColor="#6B7280"
+                android:layout_marginBottom="40dp"/>
+
+            <!-- Avatar Preview Card -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:cardCornerRadius="50dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="8dp"
-                app:cardBackgroundColor="@color/primary_green">
+                app:cardBackgroundColor="#FFFFFF"
+                android:layout_marginBottom="32dp">
 
-                <TextView
-                    android:id="@+id/tvInitialsPreview"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="?"
-                    android:textSize="40sp"
-                    android:textStyle="bold"
-                    android:textColor="#FFFFFF"
-                    android:gravity="center"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="24dp"
+                    android:gravity="center_vertical">
+
+                    <!-- Avatar Circle -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:cardCornerRadius="40dp"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@color/primary_green">
+
+                        <TextView
+                            android:id="@+id/tvInitialsPreview"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="\?"
+                            android:textSize="32sp"
+                            android:textStyle="bold"
+                            android:textColor="#FFFFFF"
+                            android:gravity="center"/>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Preview Text -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/label_preview"
+                            android:textSize="12sp"
+                            android:textColor="#9CA3AF"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.1"/>
+
+                        <TextView
+                            android:id="@+id/tvNamePreview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/your_name_here"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="#1F2937"
+                            android:layout_marginTop="4dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/label_your_profile"
+                            android:textSize="12sp"
+                            android:textColor="#6B7280"
+                            android:layout_marginTop="2dp"/>
+                    </LinearLayout>
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
-        </FrameLayout>
 
-        <!-- Form -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/label_full_name"
-            app:startIconDrawable="@android:drawable/ic_menu_myplaces"
-            app:startIconTint="@color/primary_green"
-            app:boxCornerRadiusTopStart="16dp"
-            app:boxCornerRadiusTopEnd="16dp"
-            app:boxCornerRadiusBottomStart="16dp"
-            app:boxCornerRadiusBottomEnd="16dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_marginBottom="16dp">
+            <!-- Form Fields -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_account_details"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#374151"
+                android:layout_marginBottom="16dp"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etFullName"
+            <!-- Full Name -->
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:hint="@string/label_full_name"
+                app:startIconDrawable="@android:drawable/ic_menu_myplaces"
+                app:startIconTint="@color/primary_green"
+                app:boxCornerRadiusTopStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusBottomEnd="16dp"
+                app:boxStrokeWidth="2dp"
+                app:boxStrokeColor="@color/primary_green"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginBottom="16dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/label_email"
-            app:startIconDrawable="@android:drawable/ic_dialog_email"
-            app:startIconTint="@color/primary_green"
-            app:boxCornerRadiusTopStart="16dp"
-            app:boxCornerRadiusTopEnd="16dp"
-            app:boxCornerRadiusBottomStart="16dp"
-            app:boxCornerRadiusBottomEnd="16dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_marginBottom="16dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFullName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:textSize="16sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etEmail"
+            <!-- Email (Optional) -->
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:hint="@string/label_email_optional"
+                app:startIconDrawable="@android:drawable/ic_dialog_email"
+                app:startIconTint="@color/primary_green"
+                app:boxCornerRadiusTopStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusBottomEnd="16dp"
+                app:boxStrokeWidth="2dp"
+                app:boxStrokeColor="@color/primary_green"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginBottom="16dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/label_phone"
-            app:startIconDrawable="@android:drawable/ic_menu_call"
-            app:startIconTint="@color/primary_green"
-            app:boxCornerRadiusTopStart="16dp"
-            app:boxCornerRadiusTopEnd="16dp"
-            app:boxCornerRadiusBottomStart="16dp"
-            app:boxCornerRadiusBottomEnd="16dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_marginBottom="32dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:textSize="16sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPhone"
+            <!-- Phone -->
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:hint="@string/label_phone"
+                app:startIconDrawable="@android:drawable/ic_menu_call"
+                app:startIconTint="@color/primary_green"
+                app:boxCornerRadiusTopStart="16dp"
+                app:boxCornerRadiusTopEnd="16dp"
+                app:boxCornerRadiusBottomStart="16dp"
+                app:boxCornerRadiusBottomEnd="16dp"
+                app:boxStrokeWidth="2dp"
+                app:boxStrokeColor="@color/primary_green"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_marginBottom="32dp">
 
-        <!-- Create Button -->
-        <Button
-            android:id="@+id/btnCreateAccount"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:textSize="16sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Privacy Note -->
+
+            <!-- Spacer for bottom button -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="80dp"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Create Button -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:cardElevation="16dp"
+        app:cardCornerRadius="0dp"
+        android:layout_marginBottom="-1dp">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="@string/btn_create_account"
-            android:textAllCaps="false"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:backgroundTint="@color/primary_green"
-            app:cornerRadius="16dp"/>
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingBottom="32dp"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:background="#FFFFFF">
 
-    </LinearLayout>
-</ScrollView>
+            <Button
+                android:id="@+id/btnCreateAccount"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="@string/btn_create_account"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/primary_green"
+                app:cornerRadius="16dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -191,45 +191,8 @@
                     android:layout_marginBottom="8dp"
                     android:drawableTint="#3B82F6"/>
 
-                <!-- Wallet -->
-                <RadioButton
-                    android:id="@+id/rbWallet"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/method_wallet"
-                    android:background="@drawable/selector_payment_method"
-                    android:button="@null"
-                    android:drawableStart="@android:drawable/ic_menu_call" 
-                    android:drawablePadding="12dp"
-                    android:padding="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:drawableTint="#8B5CF6"/>
-                    
-                <!-- Prepaid Balance -->
-                <RadioButton
-                    android:id="@+id/rbPrepaid"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/method_prepaid"
-                    android:background="@drawable/selector_payment_method"
-                    android:button="@null"
-                    android:drawableStart="@android:drawable/ic_menu_compass" 
-                    android:drawablePadding="12dp"
-                    android:padding="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:drawableTint="#F59E0B"/>
             </RadioGroup>
             
-            <TextView
-                android:id="@+id/tvBalance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Current Balance: 100.00 MAD"
-                android:textColor="#6B7280"
-                android:layout_gravity="end"
-                android:textSize="12sp"
-                android:visibility="gone"/>
-
         </LinearLayout>
     </ScrollView>
 

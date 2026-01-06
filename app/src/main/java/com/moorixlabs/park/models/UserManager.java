@@ -1,5 +1,8 @@
 package com.moorixlabs.park.models;
 
+import android.content.Context;
+import com.moorixlabs.park.R;
+
 /**
  * Pure Java manager for user account operations
  */
@@ -42,22 +45,22 @@ public class UserManager {
     }
 
     // Get greeting based on time of day
-    public String getGreeting() {
-        if (currentUser == null) return "Welcome";
+    public String getGreeting(Context context) {
+        if (currentUser == null) return context.getString(R.string.greeting_welcome);
         
         java.util.Calendar calendar = java.util.Calendar.getInstance();
         int hour = calendar.get(java.util.Calendar.HOUR_OF_DAY);
 
         String timeGreeting;
         if (hour < 12) {
-            timeGreeting = "Good Morning";
+            timeGreeting = context.getString(R.string.greeting_morning);
         } else if (hour < 18) {
-            timeGreeting = "Good Afternoon";
+            timeGreeting = context.getString(R.string.greeting_afternoon);
         } else {
-            timeGreeting = "Good Evening";
+            timeGreeting = context.getString(R.string.greeting_evening);
         }
 
-        return timeGreeting + ", " + currentUser.getFirstName();
+        return context.getString(R.string.greeting_format, timeGreeting, currentUser.getFirstName());
     }
 
     public String getWelcomeMessage() {

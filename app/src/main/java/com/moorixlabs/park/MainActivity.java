@@ -34,12 +34,20 @@ public class MainActivity extends AppCompatActivity {
     private CardView btnHistory;
     private ImageButton btnProfile;
     private TextView tvUserGreeting;
+    private CardView cardNoVehicleWarning;
+    private Button btnAddVehicleWarning;
+    
+    // Track language to detect changes
+    private String currentLanguageCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         LanguageHelper.loadLocale(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        // Save current language code
+        currentLanguageCode = LanguageHelper.getCurrentLanguage(this);
 
         initializeManagers();
         bindViews();
@@ -49,6 +57,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        
+        // Check if language changed while away (e.g. in Profile)
+        String savedLanguage = LanguageHelper.getCurrentLanguage(this);
+        if (!currentLanguageCode.equals(savedLanguage)) {
+            recreate(); // Restart activity to apply new language
+            return;
+        }
+        
         updateDashboard();
     }
 
@@ -70,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
         btnHistory = findViewById(R.id.btnHistory);
         btnProfile = findViewById(R.id.btnProfile);
         tvUserGreeting = findViewById(R.id.tvUserName);
+        cardNoVehicleWarning = findViewById(R.id.cardNoVehicleWarning);
+        btnAddVehicleWarning = findViewById(R.id.btnAddVehicleWarning);
     }
 
     private void setupListeners() {
@@ -97,6 +115,11 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
             startActivity(intent);
         });
+
+        btnAddVehicleWarning.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, AddVehicleActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void updateDashboard() {
@@ -105,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
         int total = parkingManager.getTotalSpots();
         double rate = parkingManager.getHourlyRate();
         boolean hasSession = sessionController.hasActiveSession();
+        boolean hasVehicles = vehicleManager.hasVehicles();
 
         // Update UI
         availableSpotsText.setText(available + " / " + total);
@@ -113,7 +137,17 @@ public class MainActivity extends AppCompatActivity {
         hourlyRateText.setText((int)rate + " " + currencySymbol + "/h");
 
         // Update greeting with user name
-        tvUserGreeting.setText(userManager.getGreeting());
+        tvUserGreeting.setText(userManager.getGreeting(this));
+
+        // Check for vehicles
+        if (!hasVehicles) {
+            cardNoVehicleWarning.setVisibility(View.VISIBLE);
+            // Optional: Hide or disable Start Parking if no vehicle
+            // btnStartParking.setEnabled(false); 
+        } else {
+            cardNoVehicleWarning.setVisibility(View.GONE);
+            // btnStartParking.setEnabled(true);
+        }
 
         if (hasSession) {
             activeSessionCard.setVisibility(View.VISIBLE);
