@@ -27,13 +27,13 @@
     
     <!-- Team Members - CUSTOMIZE THESE -->
     <string name="member1_name">Anas ElMarihi</string>
-    <string name="member1_role">Lead Developer</string>
+    <string name="member1_role">Java Developer</string>
     
     <string name="member2_name">Abderrahmane Aboutalib</string>
-    <string name="member2_role">UI/UX Designer</string>
+    <string name="member2_role">UI Designer</string>
     
     <string name="member3_name">Hamza Khayi</string>
-    <string name="member3_role">QA Engineer</string>
+    <string name="member3_role">App Tester</string>
     
     <!-- Project Info - CUSTOMIZE THESE -->
     <string name="university_name">Ecole Superieur de Technologie</string>

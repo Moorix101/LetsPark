@@ -26,13 +26,13 @@
     <string name="project_team">فريق المشروع</string>
     
     <string name="member1_name">أنس المريحي</string>
-    <string name="member1_role">مطور رئيسي</string>
+    <string name="member1_role">مطور لغة جافا</string>
     
     <string name="member2_name">عبد الرحمان أبو طالب</string>
     <string name="member2_role">مصمم واجهات</string>
     
     <string name="member3_name">حمزة خيي</string>
-    <string name="member3_role">مهندس جودة</string>
+    <string name="member3_role">مُختبِر البرنامج</string>
     
     <string name="university_name">المدرسة العليا للتكنولوجيا</string>
     <string name="project_year">السنة الأكاديمية 2025–2026</string>
