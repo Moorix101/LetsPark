@@ -4,7 +4,7 @@
 <p align="center">
   <a href="README_EN.md">🇬🇧 English</a> | 
   <a href="README_AR.md">🇸🇦 العربية</a> | 
-  <a href="#releases">📦 Releases</a>
+  <a href="https://github.com/Moorix101/LetsPark/releases/tag/v1.0">📦 Releases</a>
 </p>
 
 ---
@@ -60,7 +60,7 @@ L’application suit une structure **MVC** inspirée :
 ### Option 1 : Installer l’APK (recommandé)
 
 1. Téléphone Android requis  
-2. Aller dans la section 📦 [Releases](#releases).  
+2. Aller dans la section <a href="https://github.com/Moorix101/LetsPark/releases/tag/v1.0">📦 Releases</a>
 3. Télécharger le dernier APK  
 4. Autoriser l’installation depuis des sources inconnues  
    (Paramètres > Sécurité > Sources inconnues)  
@@ -101,7 +101,7 @@ Ce projet est développé uniquement à des fins éducatives.
 
 ## 📦 Releases
 
-Pour télécharger l’APK, consultez la section [Releases](#releases).
+Pour télécharger l’APK, consultez la section <a href="https://github.com/Moorix101/LetsPark/releases/tag/v1.0">📦 Releases</a>
 
 ## 📄 Licence
 Projet développé uniquement à des fins éducatives.
