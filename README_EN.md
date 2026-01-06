@@ -1,8 +1,11 @@
 # 🚗 Park – Small Report with Installation Instructions
 
-<div align="center">
-[🇫🇷 Français](README.md) • [🇸🇦 العربية](README_AR.md) • [📦 Releases](#releases)
-</div>
+<p align="center">
+  <a href="README_FR.md">🇬🇧 Francais</a> | 
+  <a href="README_AR.md">🇸🇦 العربية</a> | 
+  <a href="#releases">📦 Releases</a>
+</p>
+
 
 ---
 
