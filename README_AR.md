@@ -1,8 +1,11 @@
 # 🚗 Park – تقرير مع تعليمات التثبيت
 
-<div align="center">
-[🇫🇷 Français](README.md) • [🇬🇧 English](README_EN.md) • [📦 Releases](#releases)
-</div>
+<p align="center">
+  <a href="README_EN.md">🇬🇧 English</a> | 
+  <a href="README.md"> Francais</a> | 
+  <a href="#releases">📦 Releases</a>
+</p>
+
 
 ---
 
