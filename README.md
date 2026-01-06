@@ -1,9 +1,11 @@
 # 🚗 Park – Un système de gestion de parking avec tarification horaire
 
 
-<div align="center">
-[🇬🇧 English](README_EN.md) • [🇸🇦 العربية](README_AR.md) • [📦 Releases](#releases)
-</div>
+<p align="center">
+  <a href="README_EN.md">🇬🇧 English</a> | 
+  <a href="README_AR.md">🇸🇦 العربية</a> | 
+  <a href="#releases">📦 Releases</a>
+</p>
 
 ---
 
